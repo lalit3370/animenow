@@ -1,98 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <style>
-            .wrapper{
-                display: grid;
-                grid-template-columns: 100%;
-                padding:1em;
-                grid-gap:0.5em;
-            }
-            #navbar{
-                display: grid;
-                grid-template-columns: 1fr 2fr 1fr;
-                text-align: center;
-                grid-auto-rows: 50px;
-
-            }
-            #navbar>div{
-                padding:0.5em;
-                background-color: #333333;
-            }
-            #mid{
-                display: grid;
-                grid-template-columns:100%;
-                grid-gap:0.5em;
-                grid-auto-rows:minmax(350px,auto);
-            }
-            #mid>div{
-                padding:1em;
-                background-color:blueviolet;
-
-            }
-            #mid>div:nth-child(odd)
-            {
-                background-color:coral;
-             /*   grid-template-rows: minmax(300px,auto); */
-            }
-            #foot{
-                padding:1em;
-                background-color: darkgray;
-            }
-            ul{
-                list-style-type: none;
-                margin: 0;
-                padding: 0;
-                overflow: hidden;
-            }
-            .navlink{
-              /*  display:grid;
-                grid-template-columns: 1fr 1fr 1fr; */
-                display: block;
-                float: left;
-                padding: 6px;
-                color:white;
-                text-decoration: none;
-            }
-            #homeicon{
-                padding: 6px;
-                float:left;
-                display:block;
-                color:white;
-                text-decoration: none;
-                text-align: center;
-                text-decoration-style: none;
-            }
-            #search{
-                padding: 6px;
-            }
-
-        </style>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+        <link rel="stylesheet" href="home.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>AnimeNow</title>
 </head>
 <body>
     <div class="wrapper">
         <div id="navbar">
-            <div>
-                <a href="home.php" id="homeicon">Animemes</a>
+            <div  id="homeicon">
+                <a href="home.php">AnimeNow</a>
             </div>
-            <div>
-                <ul>
-                    <li><a href="list.php" class="navlink">List</a></li>
-                    <li><a href="genre.php" class="navlink"> Genre</a></li>
-                    <li><a href="browse.php" class="navlink">Browse</a></li>
-                </ul>
-            </div>
-            <div>
-                <form action="search.php" method="POST"><input type="text" id="search" value="Search"></button></form>
+            <div class="topnav">
+                <a class="active" href="#home">Home</a>
+                <a href="#list">List</a>
+                <div class="dropdown">
+                            <button class="dropbtn">Genre</button>
+                        <div class="dropdown-content">
+                            <div>
+                                <div>
+                                   <a href="#genre.php" onclick="genreVal(this);" class="genlinkedit">Action</a>
+                                </div>
+                                <div>
+                                    <a href="#genre.php" onclick="genreVal(this);" class="genlinkedit">Adventure</a> 
+                                </div>
+                                        
+                                <div>
+                                    <a href="#genre.php" onclick="genreVal(this);" class="genlinkedit">Comedy</a>     
+                                </div>
+                                        
+                                <div>
+                                    <a href="#genre.php" onclick="genreVal(this);" class="genlinkedit">Drama</a> 
+                                </div>
+                                        
+                                <div>
+                                    <a href="#genre.php" onclick="genreVal(this);" class="genlinkedit">Slice of life</a>
+                                </div>
+                            </div>
+                            <div>
+                                <div>
+                                    <a href="#genre.php" onclick="genreVal(this);" class="genlinkedit">Fantasy</a>
+                                </div>
+                                 <div>
+                                    <a href="#genre.php" onclick="genreVal(this);" class="genlinkedit">Magic</a>
+                                 </div>
+                                            
+                                 <div>
+                                     <a href="#genre.php" onclick="genreVal(this);" class="genlinkedit">Supernatural</a>
+                                 </div>
+                                            
+                                 <div>
+                                    <a href="#genre.php" onclick="genreVal(this);" class="genlinkedit">Horror</a>
+                                 </div>
+                                            
+                                 <div>
+                                     <a href="#genre.php" onclick="genreVal(this);" class="genlinkedit">Mystery</a>
+                                </div>
+                            </div>
+                             <div>
+                                <div> 
+                                    <a href="#genre.php" onclick="genreVal(this);" class="genlinkedit">Psychological</a>
+                                </div>
+                                <div>
+                                    <a href="#genre.php" onclick="genreVal(this);" class="genlinkedit">Romance</a>
+                                </div>
+                                <div>
+                                    <a href="#genre.php" onclick="genreVal(this);" class="genlinkedit">Sci-Fi</a>
+                                </div>
+                            </div>
+         
+                           
+
+
+                                        
+                </div>
+
+                </div>
+                <a href="#browse">Browse</a>
+                <a href="#animemes">Animemes</a>
+              </div>
+              
+            <div class="searcharea">
+                <form action="search.php" method="POST"><input type="text" id="search" placeholder="Search"> <a href="#search"><i class="fas fa-search"></i></a></form>
             </div>
         </div>
         <div id="mid"> 
-            <div >
-                row1-new
+                <div class="row">
+                <div class="rowheadingarea">
+                        <div class="rowheading">New</div>
+                </div>
+                 
+                <div class="animethumbs">
+                            <div>
+                                <img src="animeimages\hxh.jpg" alt="">
+                            </div>
+                            <div>
+                                <img src="animeimages\hxh.jpg" alt="">
+                            </div>
+                            <div>
+                                <img src="animeimages\hxh.jpg" alt="">
+                            </div>
+                            <div>
+                                <img src="animeimages\hxh.jpg" alt="">
+                            </div>  
+                            <div>
+                                <img src="animeimages\hxh.jpg" alt="">
+                            </div>
+                            <div>
+                                    <img src="animeimages\hxh.jpg" alt="">
+                            </div>
+                </div>
+
             </div>
             <div>
                 row2-top
