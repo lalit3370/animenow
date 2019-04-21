@@ -24,7 +24,7 @@
             }
             #navbar>div{
                 padding: 0em;
-                background-color: #000;
+                background-color: #333;
             }
             #mid{
                 display: grid;
@@ -83,10 +83,6 @@
                 text-decoration: none;
                 font-size: 17px;
                 transition: 0.3s;
-            }
-
-            .topnav a:hover {
-                 background-color: black;
             }
 
             .topnav a.active {
@@ -153,9 +149,12 @@
 
               }
               
-              .topnav a:hover, .dropdown:hover .dropbtn {
-                background-color: black;
-                color: #B60437;
+              .topnav a:hover{
+                  background-color: #5C5A5A;
+              }
+              .dropdown:hover .dropbtn {
+                background-color: #5C5A5A;
+                /*color: #B60437;*/
               }
               
               .dropdown-content a:hover {
@@ -166,7 +165,7 @@
               .dropdown:hover .dropdown-content {
                 /*transition: 0.5s;*/
                 display: grid;
-                background-color:#000;
+                background-color:#333;
                 grid-template-columns: 1fr 1fr 1fr;
                 text-align: left;
                 /*grid-template-rows: repeat(5,2fr);*/
@@ -174,9 +173,7 @@
               .row{
                   display:grid;
                   grid-template-columns: 1fr;
-                  /*display: flex;
-                  
-                  align-items: center;*/
+                  position: relative;
               }
               .animethumbarea{
                   display: grid;
@@ -189,7 +186,7 @@
               .rowheadingarea{
                   padding:1em;
                   margin:1em;
-                  background-color: #000;
+                  background-color: #333;
                   /*width:30px;*/
                   width: 5%;
                   color:white;
@@ -216,21 +213,75 @@
               .animethumbs:hover{
                   transform: scale(1.1);
               }
-              .but1{
-                    position: absolute;
-                    z-index: 2;
-                    top:875px;
-                   /* margin-right:1em;*/
+              .leftbutton{
                     border-radius:50%;
                     height:75px;
                     width:75px;
                     border: none;
                     box-shadow: 0px 0px 9px 2px rgba(209,209,209,1);
-                    background-color: rgb(34, 33, 33);
+                    background-color: #333;
+                    transition: transform .2s;
+
               }
+              .leftbutton:hover{
+                  transform: scale(1.1);
+              }
+              .rightbutton{
+                border-radius:50%;
+                height:75px;
+                width:75px;
+                border: none;
+                box-shadow: 0px 0px 9px 2px rgba(209,209,209,1);
+                background-color: #333; /*rgb(34, 33, 33);*/
+                transition: transform .2s;
+          }
+          .rightbutton:hover{
+            transform: scale(1.1);
+        }
+
               .fa-angle-left{
                   color: #B60437;
               }
-              .but1:focus{
+              .fa-angle-right{
+                color: #B60437;
+            }
+              .leftbutton:focus, .rightbutton:focus{
                 outline:none;
            }
+
+           #but1{
+            position: absolute;
+            z-index: 2;
+            top: 260px;
+            left: 15px;
+          }
+          #but2{
+            position: absolute;
+            z-index: 2;
+            top: 260px;
+            left:1710px;
+          }
+          #but3{
+            position: absolute;
+            z-index: 2;
+            top: 260px;
+            left: 0px;
+          }
+          #but4{
+            position: absolute;
+            z-index: 2;
+            top:260px;
+            left:1695px;
+          }
+          #but5{
+            position: absolute;
+            z-index: 2;
+            top: 260px;
+            left: 0px;
+          }
+          #but6{
+            position: absolute;
+            z-index: 2;
+            top:260px;
+            left:1695px;
+          }
