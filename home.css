@@ -8,9 +8,10 @@ body{
   margin-right: auto;
   display: grid;
   grid-template-columns: 100%;
-  padding:1em;
+  padding:0em;
   grid-gap:0.5em;
   box-shadow: 0px 0px 7px 4px rgba(229,229,229,1);
+  background-color: transparent;
 }
 #navbar{
   position: sticky;
@@ -38,12 +39,15 @@ body{
 
 }
 #foot{
-  grid-auto-rows: 100px;
+
   display: grid;
   grid-template-columns: 1fr 1fr;
-  /*align-items: center;*/
+  grid-auto-rows: 50px;
+  align-items: center;
+  justify-items: center; 
   padding:1em;
-  background-color: darkgray;
+  background-color: #333;
+  color: white;
 }
 
 #homeicon a{
@@ -253,7 +257,7 @@ transform: scale(1.1);
   outline:none;
 }
 
-#but1{
+#but1{                      /*buttons for viewing list left right*/
 position: absolute;
 z-index: 2;
 top: 260px;
