@@ -38,6 +38,10 @@ body{
 
 }
 #foot{
+  grid-auto-rows: 100px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  /*align-items: center;*/
   padding:1em;
   background-color: darkgray;
 }
