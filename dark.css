@@ -1,0 +1,21 @@
+#slide{
+    position: relative;
+    top:-2px;
+    height: 24px;
+    width:24px ;
+    border-radius: 50%;
+    border:none;
+    padding-right:10px;
+    transition-duration: 0.5s;
+    left:20px;
+}
+#slide:focus{
+    outline: none;
+}
+
+#test{
+    background-color:rgb(88, 88, 88);
+    width:40px;
+    height:20px;
+    border-radius: 200px;
+}
