@@ -1,6 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head>  
+        <link rel="stylesheet" href="light.css" id="cssfile">
+        <script>
+                var mode="light.css";
+                function changetheme()
+                {
+                    if(mode=="light.css")
+                    {
+                        mode="dark.css";
+                    }
+                    else if(mode=="dark.css")
+                    {
+                        mode="light.css";
+                    }
+                    document.getElementById("cssfile").setAttribute("href",mode);
+                }
+                </script>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
         <link rel="stylesheet" href="home.css">
     <meta charset="UTF-8">
@@ -85,6 +101,17 @@
               
             <div class="searcharea">
                 <form action="search.php" method="POST"><input type="text" id="search" placeholder="Search"> <a href="#search"><i class="fas fa-search"></i></a></form>
+            </div>
+            <div id="acctarea">
+                <a href="#login">Login</a>
+                <a href="#signup">Signup</a>
+                <div id="acctdropdown">
+                    <button id="acctdropbtn"><i class="fas fa-user fa-2x"></i></button>
+                        <div id="acctdropcontent">Turn Dark theme ON/OFF <div id="test">
+                                <button id="slide" onclick="changetheme()"></button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <div id="mid"> 
