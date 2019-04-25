@@ -6,7 +6,7 @@
     border-radius: 50%;
     border:none;
     padding-right:10px;
-    transition-duration: 0.5s;
+    transition-duration: 0.2s;
     left:20px;
 }
 #slide:focus{

@@ -1,24 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>  
-        <link rel="stylesheet" href="light.css" id="cssfile">
         <script>
-                var mode="light.css";
+                var mode="lighthome.css";
                 function changetheme()
                 {
-                    if(mode=="light.css")
+                    if(mode=="lighthome.css")
                     {
-                        mode="dark.css";
+                        mode="darkhome.css";
                     }
-                    else if(mode=="dark.css")
+                    else if(mode=="darkhome.css")
                     {
-                        mode="light.css";
+                        mode="lighthome.css";
                     }
                     document.getElementById("cssfile").setAttribute("href",mode);
                 }
                 </script>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-        <link rel="stylesheet" href="home.css">
+        <link rel="stylesheet" href="darkhome.css" id="cssfile">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -106,7 +105,7 @@
                 <a href="#login">Login</a>
                 <a href="#signup">Signup</a>
                 <div id="acctdropdown">
-                    <button id="acctdropbtn"><i class="fas fa-user fa-2x"></i></button>
+                    <button id="acctdropbtn"><i class="fas fa-cog fa-2x"></i></button>
                         <div id="acctdropcontent">Turn Dark theme ON/OFF <div id="test">
                                 <button id="slide" onclick="changetheme()"></button>
                         </div>
