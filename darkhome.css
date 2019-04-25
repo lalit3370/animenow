@@ -159,6 +159,7 @@ body{
   
   .topnav a:hover{
       background-color: #5C5A5A;
+      color: #f39c12;
   }
   .dropdown:hover .dropbtn {
     background-color: #5C5A5A;
@@ -317,7 +318,8 @@ body{
     font-size: 17px;
   }
   #acctarea a:hover{
-    background: #f39c12;
+    background-color: #5C5A5A;
+    color: #f39c12;
   }
   #acctdropcontent{
     margin-top:50px;

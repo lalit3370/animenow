@@ -322,7 +322,8 @@ left:1695px;
   transition: 0.3s;
 }
 #acctarea a:hover{
-  background: #5C5A5A;
+  background-color:#ecf0f1;
+  color: #f39c12;
 }
 #acctdropcontent{
   margin-top:50px;
