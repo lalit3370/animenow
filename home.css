@@ -33,7 +33,7 @@
   --rowheadingareaHover: #f39c12;
   --animethumbsboxshadow: 2px 2px 5px 0px rgba(26,26,26,1);
   --animethumbsbgcolor: rgb(255, 255, 255);
-  --imagetextbgcolor: rgb(255, 255, 255);
+  --imagetextbgcolor: #333;
   --leftbuttonboxshadow: 3px 3px 3px 0px rgba(0,0,0,1);
   --leftbuttonbgcolor: #333;
   --faangleleftcolor: #f39c12;
@@ -265,7 +265,7 @@ body{
     transition: transform .2s;
   }
   .imagetext{
-      background-color: #333;/*var(--imagetextbgcolor);*/
+      background-color: /*#333;*/var(--imagetextbgcolor);
       text-align: center;
       padding:auto;
       color:white;

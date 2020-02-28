@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="homestyle.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="list.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>AnimeNow</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div id="navbar">
+            <div id="homeicon">
+                <a href="home.html">AnimeNow</a>
+            </div>
+            <div class="topnav">
+                <a href="home.html">Home</a>
+                <a href="list.html" class="active">List</a>
+                <div class="dropdown">
+                    <button class="dropbtn">Genre</button>
+                    <div class="dropdown-content">
+                        <div>
+                            <div>
+                                <a href="#genre.php" class="genlinkedit" >Action</a>
+                            </div>
+                            <div>
+                                <a href="#genre.php" class="genlinkedit">Adventure</a>
+                            </div>
+
+                            <div>
+                                <a href="#genre.php" class="genlinkedit">Comedy</a>
+                            </div>
+
+                            <div>
+                                <a href="#genre.php" class="genlinkedit">Drama</a>
+                            </div>
+
+                            <div>
+                                <a href="#genre.php" class="genlinkedit">Slice of life</a>
+                            </div>
+                        </div>
+                        <div>
+                            <div>
+                                <a href="#genre.php" class="genlinkedit">Fantasy</a>
+                            </div>
+                            <div>
+                                <a href="#genre.php" class="genlinkedit">Magic</a>
+                            </div>
+
+                            <div>
+                                <a href="#genre.php" class="genlinkedit">Supernatural</a>
+                            </div>
+
+                            <div>
+                                <a href="#genre.php" class="genlinkedit">Horror</a>
+                            </div>
+
+                            <div>
+                                <a href="#genre.php" class="genlinkedit">Mystery</a>
+                            </div>
+                        </div>
+                        <div>
+                            <div>
+                                <a href="#genre.php" class="genlinkedit">Psychological</a>
+                            </div>
+                            <div>
+                                <a href="#genre.php" class="genlinkedit">Romance</a>
+                            </div>
+                            <div>
+                                <a href="#genre.php" class="genlinkedit">Sci-Fi</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a href="#browse">Browse</a>
+                <a href="#animemes">Animemes</a>
+            </div>
+
+            <div class="searcharea">
+                <form action="search.php" method="POST"><input type="text" id="search" placeholder="Search"> <a
+                        href="#search"><i class="fas fa-search"></i></a></form>
+            </div>
+            <div id="acctarea">
+                <a href="#login">Login</a>
+                <a href="#signup">Signup</a>
+                <div id="acctdropdown">
+                    <button id="acctdropbtn"><i class="fas fa-cog fa-2x"></i></button>
+                    <div id="acctdropcontent">
+                        <p>
+                            Turn Dark theme ON/OFF
+                        </p>
+                        <div id="themesliderdiv">
+                            <button id="themeslider" onclick="changetheme()">
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- MID AREA -->
+        <div id="mid">
+            <div class="row" id="midrow">
+                <h1>List</h1>
+            </div>
+        </div>
+        <div id="foot">
+            <div>
+                About Us
+            </div>
+            <div>
+                Contact Us
+            </div>
+        </div>
+        <script src="list.js"></script>
+</body>
+
+</html>
+                <!-- <div>
+                <form action="getlist()" id="startword">
+                    <button>#</button>
+                    <button>A</button>
+                    <button>B</button>
+                    <button>C</button>
+                    <button>D</button>
+                    <button>E</button>
+                    <button>F</button>
+                    <button>G</button>
+                    <button>H</button>
+                    <button>I</button>
+                    <button>J</button>
+                    <button>K</button>
+                    <button>L</button>
+                    <button>M</button>
+                    <button>N</button>
+                    <button>O</button>
+                    <button>P</button>
+                    <button>Q</button>
+                    <button>R</button>
+                    <button>S</button>
+                    <button>T</button>
+                    <button>U</button>
+                    <button>V</button>
+                    <button>W</button>
+                    <button>X</button>
+                    <button>Y</button>
+                    <button>Z</button>
+                </form>
+                </div>
+                <table id="anilisttable">
+                    <tr>
+                        <th>S.No.</th>
+                        <th>Title</th>
+                        <th>Mal</th>
+                    </tr>
+                </table> -->
