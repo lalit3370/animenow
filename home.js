@@ -109,7 +109,7 @@ function getnew() {
     request.send();
     request.onload = function () {
         newdata = request.response;
-        console.log(newdata)
+        // console.log(newdata);
         var d1 = document.getElementById('newanime');
         for (var i = 0; i < 6; i++) {
             const element = newdata.anime[i];

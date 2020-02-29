@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <script src="homestyle.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
@@ -18,61 +19,37 @@
                 <a href="home.html">AnimeNow</a>
             </div>
             <div class="topnav">
-                <a href="home.html">Home</a>
-                <a href="list.html" class="active">List</a>
+                <a href="home.html" class="active">Home</a>
+                <a href="list.html">List</a>
                 <div class="dropdown">
                     <button class="dropbtn">Genre</button>
                     <div class="dropdown-content">
                         <div>
-                            <div>
-                                <a href="#genre.php" class="genlinkedit" >Action</a>
-                            </div>
-                            <div>
-                                <a href="#genre.php" class="genlinkedit">Adventure</a>
-                            </div>
-
-                            <div>
-                                <a href="#genre.php" class="genlinkedit">Comedy</a>
-                            </div>
-
-                            <div>
-                                <a href="#genre.php" class="genlinkedit">Drama</a>
-                            </div>
-
-                            <div>
-                                <a href="#genre.php" class="genlinkedit">Slice of life</a>
-                            </div>
+                            <form action="genre.php" method="GET">
+                                <div><button type="submit" class="genreid" value="1" name="genrebtn">Action</button></div>
+                                <div><button type="submit" class="genreid" value="2" name="genrebtn">Adventure</div>
+                                <div><button type="submit" class="genreid" value="4" name="genrebtn">Comedy</button></div>
+                                <div><button type="submit" class="genreid" value="8" name="genrebtn">Drama</button></div>
+                                <div><button type="submit" class="genreid" value="36" name="genrebtn">Slice of Life</button></div>
+                            </form>
                         </div>
+
                         <div>
-                            <div>
-                                <a href="#genre.php" class="genlinkedit">Fantasy</a>
-                            </div>
-                            <div>
-                                <a href="#genre.php" class="genlinkedit">Magic</a>
-                            </div>
-
-                            <div>
-                                <a href="#genre.php" class="genlinkedit">Supernatural</a>
-                            </div>
-
-                            <div>
-                                <a href="#genre.php" class="genlinkedit">Horror</a>
-                            </div>
-
-                            <div>
-                                <a href="#genre.php" class="genlinkedit">Mystery</a>
-                            </div>
+                            <form action="genre.php" method="GET">
+                                <div><button type="submit" class="genreid" value="10" name="genrebtn">Fantasy</button></div>
+                                <div><button type="submit" class="genreid" value="16" name="genrebtn">Magic</button></div>
+                                <div><button type="submit" class="genreid" value="37" name="genrebtn">Supernatural</button></div>
+                                <div><button type="submit" class="genreid" value="14" name="genrebtn">Horror</button></div>
+                                <div><button type="submit" class="genreid" value="7" name="genrebtn">Mystery</button></div>
+                            </form>
                         </div>
+
                         <div>
-                            <div>
-                                <a href="#genre.php" class="genlinkedit">Psychological</a>
-                            </div>
-                            <div>
-                                <a href="#genre.php" class="genlinkedit">Romance</a>
-                            </div>
-                            <div>
-                                <a href="#genre.php" class="genlinkedit">Sci-Fi</a>
-                            </div>
+                            <form action="genre.php" method="GET">
+                                <div><button type="submit" class="genreid" value="40" name="genrebtn">Psychological</button></div>
+                                <div><button type="submit" class="genreid" value="22" name="genrebtn">Romance</button></div>
+                                <div><button type="submit" class="genreid" value="24" name="genrebtn">Sci-Fi</button></div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -81,13 +58,18 @@
             </div>
 
             <div class="searcharea">
-                <form action="search.php" method="POST"><input type="text" id="search" placeholder="Search"> <a
-                        href="#search"><i class="fas fa-search"></i></a></form>
+                <div>
+                    <form action="search.php" method="POST">
+                        <input type="text" id="search" placeholder="Search">
+                    </form>
+                </div>
+                <div>
+                    <i class="fas fa-search"></i>
+                </div>
             </div>
             <div id="acctarea">
                 <a href="#login">Login</a>
                 <a href="#signup">Signup</a>
-
                 <div id="acctdropdown">
                     <button id="acctdropbtn"><i class="fas fa-cog fa-2x"></i></button>
                     <div id="acctdropcontent">
@@ -110,7 +92,7 @@
                 <button class="leftbutton" id="but1"><i class="fas fa-angle-left fa-5x"></i></button>
                 <div class="animethumbarea" id="newanime">
                     <!-- NEWANIME   -->
-                </div >
+                </div>
                 <button class="rightbutton" id="but2"><i class="fas fa-angle-right fa-5x"></i></button>
 
             </div>
@@ -151,4 +133,4 @@
         <script src="home.js"></script>
 </body>
 
-</html>
+</htmGET
