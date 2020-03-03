@@ -6,12 +6,26 @@
     <link href="https://fonts.googleapis.com/css?family=Oxygen|Trade+Winds&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
         integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-    <link rel="stylesheet" href="list.css">
     <link rel="stylesheet" href="home.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>AnimeNow</title>
+    <script>
+        var query="<?php echo $_GET["searchkey"]; ?>";
+        console.log(query);
+        fetch('https://api.jikan.moe/v3/search/anime?q='+query+'&page=1')
+        .then((response) => {
+            return response.json();
+        })
+        .then((data) => {
+            console.log(data); 
+            for (var i = 0; i < 10 ; i++) {
+                const element = data.results[i];
+                document.getElementById("newanime").insertAdjacentHTML('beforeend','<div class="animethumbs"><div class="animage"><img src=' + element.image_url + ' alt="Error Displaying the image" class="animage"></div><div class="imagetext"><p>' + element.title + '</p></div>');
+        }
+        });
+    </script>
 </head>
 
 <body>
@@ -21,8 +35,8 @@
                 <a href="home.html">AnimeNow</a>
             </div>
             <div class="topnav">
-                <a href="home.html">Home</a>
-                <a href="list.html" class="active">List</a>
+                <a href="home.html" class="active">Home</a>
+                <a href="list.html">List</a>
                 <div class="dropdown">
                     <button class="dropbtn">Genre</button>
                     <div class="dropdown-content">
@@ -60,9 +74,9 @@
             </div>
 
             <div class="searcharea">
-                <form action="search.php" method="GET" id="searchform">
-                    <input type="text" id="search" name="searchkey" placeholder="Press Enter to Search">
-                </form>
+                    <form action="search.php" method="GET" id="searchform">
+                        <input type="text" id="search" name="searchkey" placeholder="Press Enter to Search">
+                    </form>
             </div>
             <div id="acctarea">
                 <a href="#login">Login</a>
@@ -81,10 +95,11 @@
                 </div>
             </div>
         </div>
-        <!-- MID AREA -->
         <div id="mid">
             <div class="row" id="midrow">
-                <h1>List</h1>
+            <div class="animethumbarea" id="newanime">
+
+                </div>
             </div>
         </div>
         <div id="foot">
@@ -95,45 +110,6 @@
                 Contact Us
             </div>
         </div>
-        <script src="list.js"></script>
 </body>
 
-</html>
-                <!-- <div>
-                <form action="getlist()" id="startword">
-                    <button>#</button>
-                    <button>A</button>
-                    <button>B</button>
-                    <button>C</button>
-                    <button>D</button>
-                    <button>E</button>
-                    <button>F</button>
-                    <button>G</button>
-                    <button>H</button>
-                    <button>I</button>
-                    <button>J</button>
-                    <button>K</button>
-                    <button>L</button>
-                    <button>M</button>
-                    <button>N</button>
-                    <button>O</button>
-                    <button>P</button>
-                    <button>Q</button>
-                    <button>R</button>
-                    <button>S</button>
-                    <button>T</button>
-                    <button>U</button>
-                    <button>V</button>
-                    <button>W</button>
-                    <button>X</button>
-                    <button>Y</button>
-                    <button>Z</button>
-                </form>
-                </div>
-                <table id="anilisttable">
-                    <tr>
-                        <th>S.No.</th>
-                        <th>Title</th>
-                        <th>Mal</th>
-                    </tr>
-                </table> -->
+</htmGET

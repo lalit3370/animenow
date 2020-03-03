@@ -32,7 +32,7 @@
 --rowheadingareaboxshadow: 2px 2px 3px 1px rgba(0,0,0,1);
 --rowheadingareaHover: #f39c12;
 --animethumbsboxshadow: 2px 2px 5px 0px rgba(26,26,26,1);
---animethumbsbgcolor: #333; /*rgb(255, 255, 255);*/
+--animethumbsbgcolor: #333;/*rgb(255, 255, 255);*/
 --imagetextbgcolor: #333;
 --leftbuttonboxshadow: 3px 3px 3px 0px rgba(0,0,0,1);
 --leftbuttonbgcolor: #333;
@@ -49,7 +49,9 @@
 --themesliderdivbgcolor:#333;
 --themesliderleft: 0px;
 }
-
+a{
+  font-family: 'Trade Winds';
+}
 body{
   background: var(--bodybgcolor);
 }
@@ -114,6 +116,7 @@ body{
   text-decoration: none;
   text-align: center;
   text-decoration-style: none;
+  font-family: 'Trade Winds';
 }
 
 
@@ -150,6 +153,10 @@ body{
   background-color: var(--topnavaActivebgcolor);  
   color: var(--topnavAactivecolor);
 }
+.dropbtn.active {
+  background-color: var(--topnavaActivebgcolor);  
+  color: var(--topnavAactivecolor);
+}
 input:focus{
     outline:none;
 }
@@ -161,8 +168,7 @@ input:focus{
 }
 .searcharea i{
   color: var(--searchIcolor); 
-  margin: 0px;
-  margin-top: 20px;
+  margin: 20px;
 }
 .searcharea:focus + fas{
   color: var(--searchareaFocuscolor);
@@ -194,7 +200,7 @@ input:focus{
   padding-right:16px;
   padding-bottom:19px;
   background-color: inherit;
-  font-family: inherit;
+  font-family: 'Trade Winds';
   margin-top: 0px;
   /* margin-bottom: 10px; */
   height:100%;
@@ -248,26 +254,11 @@ input:focus{
 }
 .animethumbarea{
     display: grid;
-    grid-template-columns: /*repeat(6,225px);*/ 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: repeat(6,225px);
     grid-column-gap: 3em;
     justify-content:center;
     padding:1em;
-}
-.animethumbs{
-  z-index:1;
-  box-shadow: var(--animethumbsboxshadow);
-  background-color:var(--animethumbsbgcolor);
-  margin: 20px;
-  transition: transform .2s;
-}
-.imagetext{
-    background-color: /*#333;*/var(--imagetextbgcolor);
-    text-align: center;
-    padding:auto;
-    color:white;
-}
-.animethumbs:hover{
-    transform: scale(1.1);
+    grid-row-gap: 3em;
 }
 .rowheadingarea{
     padding:1em;
@@ -284,7 +275,23 @@ input:focus{
 .rowheadingarea:hover{
     color: var(--rowheadingareaHover);
 }
-
+.animethumbs{
+  z-index:1;
+  box-shadow: var(--animethumbsboxshadow);
+  background-color:var(--animethumbsbgcolor);
+  /* margin: 20px; */
+  transition: transform .2s;
+  height: auto;
+}
+.imagetext{
+    background-color: /*#333;*/var(--imagetextbgcolor);
+    text-align: center;
+    padding:auto;
+    color:white;
+}
+.animethumbs:hover{
+    transform: scale(1.1);
+}
 .leftbutton{
       border-radius:50%;
       height:75px;

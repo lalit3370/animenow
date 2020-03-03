@@ -10,12 +10,10 @@ window.addEventListener('scroll',function(){
         pageno++;
         fetch('https://api.jikan.moe/v3/search/anime?order_by=title&page='+pageno+'')
   .then((response) => {
-    // console.log(response);
+
     return response.json();
   })
   .then((data) => {
-    // topdata = data;
-    // console.log(topdata);
     var animelist = document.getElementById("midrow");
     for (var i = 0; i < 100; i++) {
         const element = data.results[i];
@@ -26,20 +24,15 @@ window.addEventListener('scroll',function(){
     }
 })
 
-fetch('https://api.jikan.moe/v3/search/anime?order_by=title&page='+pageno+'')
+fetch('https://api.jikan.moe/v3/search/anime?order_by=title&page=1')
   .then((response) => {
-    // console.log(response);
     return response.json();
   })
   .then((data) => {
     topdata = data;
-    console.log(topdata);
     var animelist = document.getElementById("midrow");
     for (var i = 0; i < 100; i++) {
         const element = topdata.results[i];
         animelist.insertAdjacentHTML('beforeend','<ul><a href='+element.url+' id="anilink">' + element.title + '</a></ul>');
-
   }
 });
-
-// var genre =document.getElementsByClassName

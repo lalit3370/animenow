@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <script src="homestyle.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Oxygen|Trade+Winds&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
         integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link rel="stylesheet" href="home.css">
@@ -11,7 +12,6 @@
     <title>AnimeNow</title>
     <script>
                     var genid="<?php echo $_GET["genrebtn"];  ?>";
-                    console.log(genid);
                     fetch('https://api.jikan.moe/v3/genre/anime/'+genid+'/1')
                     .then((response) => {
                         // console.log(response);
@@ -20,7 +20,7 @@
                     .then((data) => {
                         for (var i = 0; i < 100; i++) {
                             const element = data.anime[i];
-                            document.getElementById("newanime").insertAdjacentHTML('beforeend','<div class="animethumbs"><img src=' + element.image_url + ' alt="Error Displaying the image" class="animage"><div class="imagetext"><p>' + element.title + '</p></div>');
+                            document.getElementById("newanime").insertAdjacentHTML('beforeend','<div class="animethumbs"><div class="animage"><img src=' + element.image_url + ' alt="Error Displaying the image" class="animage"></div><div class="imagetext"><p>' + element.title + '</p></div>');
                             }
                     });
     </script>
@@ -36,7 +36,7 @@
                 <a href="home.html">Home</a>
                 <a href="list.html">List</a>
                 <div class="dropdown">
-                    <button class="active dropbtn">Genre</button>
+                    <button class="dropbtn" id="activeid">Genre</button>
                     <div class="dropdown-content">
                         <div>
                             <form action="genre.php" method="GET">
@@ -71,14 +71,9 @@
             </div>
 
             <div class="searcharea">
-                <div>
-                    <form action="search.php" method="POST">
-                        <input type="text" id="search" placeholder="Search">
+                    <form action="search.php" method="GET" id="searchform">
+                        <input type="text" id="search" name="searchkey" placeholder="Press Enter to Search">
                     </form>
-                </div>
-                <div>
-                    <i class="fas fa-search"></i>
-                </div>
             </div>
             <div id="acctarea">
                 <a href="#login">Login</a>
