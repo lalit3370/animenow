@@ -19,3 +19,7 @@
     color: #f39c12;
     text-decoration: underline;
 }
+#listcol{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
