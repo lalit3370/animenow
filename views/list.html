@@ -21,13 +21,13 @@
                 <a href="home.html">AnimeNow</a>
             </div>
             <div class="topnav">
-                <a href="home.html">Home</a>
-                <a href="list.html" class="active">List</a>
+                <a href="/">Home</a>
+                <a href="/list" class="active">List</a>
                 <div class="dropdown">
                     <button class="dropbtn">Genre</button>
                     <div class="dropdown-content">
                         <div>
-                            <form action="genre.php" method="GET">
+                            <form action="/genre" method="POST">
                                 <div><button type="submit" class="genreid" value="1" name="genrebtn">Action</button></div>
                                 <div><button type="submit" class="genreid" value="2" name="genrebtn">Adventure</div>
                                 <div><button type="submit" class="genreid" value="4" name="genrebtn">Comedy</button></div>
@@ -37,7 +37,7 @@
                         </div>
 
                         <div>
-                            <form action="genre.php" method="GET">
+                            <form action="/genre" method="POST">
                                 <div><button type="submit" class="genreid" value="10" name="genrebtn">Fantasy</button></div>
                                 <div><button type="submit" class="genreid" value="16" name="genrebtn">Magic</button></div>
                                 <div><button type="submit" class="genreid" value="37" name="genrebtn">Supernatural</button></div>
@@ -47,7 +47,7 @@
                         </div>
 
                         <div>
-                            <form action="genre.php" method="GET">
+                            <form action="/genre" method="POST">
                                 <div><button type="submit" class="genreid" value="40" name="genrebtn">Psychological</button></div>
                                 <div><button type="submit" class="genreid" value="22" name="genrebtn">Romance</button></div>
                                 <div><button type="submit" class="genreid" value="24" name="genrebtn">Sci-Fi</button></div>
@@ -60,7 +60,7 @@
             </div>
 
             <div class="searcharea">
-                <form action="search.php" method="GET" id="searchform">
+                <form action="/search" method="POST" id="searchform">
                     <input type="text" id="search" name="searchkey" placeholder="Press Enter to Search">
                 </form>
             </div>
