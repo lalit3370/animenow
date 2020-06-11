@@ -1,32 +1,38 @@
 var path=require('path');
 var express=require('express');
 var bodyParser=require('body-parser');
+var cookieParser=require('cookie-parser');
+var expressValidator=require('express-validator');
+var flash=require('connect-flash'); //not sure y used
+var session=require('express-session');
+var passport =require('passport');
+var LocalStrategy=require('passport-local');
+var mongo=require('mongodb');
+var mongoose=require('mongoose');
+mongoose.connect('mongodb+srv://lalit:lalit123@cluster0-fvaxm.gcp.mongodb.net/animenow', { useNewUrlParser: true ,useUnifiedTopology: true })
+var db=mongoose.connection;
+
+var homeRoutes=require('./routes/home');
+var authRoutes=require('./routes/auth');
 
 var app=express();
+
 app.set('view engine', 'ejs');
 app.set('views','views');
+
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
-// app.use(bodyParser.json())
+app.use(cookieParser());
+
+app.use(session({
+    secret:'secret',
+    saveUninitialized: true,
+    resave: true
+}));
 app.use(express.static(path.join(__dirname, 'public')));
-app.get('/',(req,res)=>{
-    res.sendFile(path.join(__dirname,'./','views','home.html'));
-})
-app.get('/list',(req,res)=>{
-    res.sendFile(path.join(__dirname,'./','views','list.html'));
-})
-// var homeRoutes=require('./routes/home');
-// app.use(homeRoutes);
-app.post('/genre',(req,res)=>{
-    res.render('genre',{genid: req.body.genrebtn});
-});
-app.post('/search',(req,res)=>{
-    res.render('search',{searchkey:req.body.searchkey});
-})
-app.use((req,res,next)=>{
-    console.log('404');
-    res.status(404).render('404',{pageTitle: 'Page not found'});
-});
+app.use(flash());
+app.use(authRoutes);
+app.use(homeRoutes);
 
 app.listen(3000);
 
