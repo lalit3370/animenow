@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
         integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="signup.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -81,42 +82,25 @@
             </div>
         </div>
         <div id="mid">
-            <div class="row row1">
-                <div class="rowheadingarea">
-                    <div class="rowheading">New</div>
-                </div>
-                <button class="leftbutton" id="but1"><i class="fas fa-angle-left fa-5x"></i></button>
-                <div class="animethumbarea" id="newanime">
-                    <!-- NEWANIME   -->
-                </div>
-                <button class="rightbutton" id="but2"><i class="fas fa-angle-right fa-5x"></i></button>
-
-            </div>
-            <div>
-                <div class="row row2">
-                    <div class="rowheadingarea">
-                        <div class="rowheading">Trending</div>
-                    </div>
-                    <button class="leftbutton" id="but3"><i class="fas fa-angle-left fa-5x"></i></button>
-                    <div class="animethumbarea" id="trendanime">
-                        <!-- TRENDANIME -->
-                    </div>
-                    <button class="rightbutton" id="but4"><i class="fas fa-angle-right fa-5x"></i></button>
+            <div class="row row1" >
+                <div class="signuparea">    <!-- copy pasted from signup.html-->
+                    <form action="/login" method="post">
+                        <div>
+                            <p>Username:</p> 
+                            <input type="text" name="username" id="username" placeholder="Enter Username">
+                        </div>
+                        <div>
+                            <p>Password:</p>
+                            <input type="password" name="userpass" id="userpass" placeholder="Enter Password">
+                        </div>
+                        <div class="submitbtnarea">
+                            <br>
+                            <button type="submit" id>Login</button>
+                        </div>
+                        
+                    </form>
                 </div>
             </div>
-            <div>
-                <div class="row row3">
-                    <div class="rowheadingarea">
-                        <div class="rowheading">Top Charts</div>
-                    </div>
-                    <button class="leftbutton" id="but5"><i class="fas fa-angle-left fa-5x"></i></button>
-                    <div class="animethumbarea" id="topanime">
-                        <!-- TOPANIME -->
-                    </div>
-                    <button class="rightbutton" id="but6"><i class="fas fa-angle-right fa-5x"></i></button>
-                </div>
-            </div>
-
         </div>
         <div id="foot">
             <div>
@@ -126,7 +110,6 @@
                 Contact Us
             </div>
         </div>
-        <script src="home.js"></script>
 </body>
 
-</htmGET
+</html>

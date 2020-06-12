@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
         integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="signup.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -81,13 +82,22 @@
             </div>
         </div>
         <div id="mid">
-            <div class="row row1">
+            <div class="row row1" >
                 <div class="signuparea">
                     <form action="/signup" method="post">
-                        Username:
-                        <input type="text" name="username" id="username" placeholder="Enter Username">
-                        Password:
-                        <input type="password" name="userpass" id="userpass">
+                        <div>
+                            <p>Username:</p> 
+                            <input type="text" name="username" id="username" placeholder="Enter Username">
+                        </div>
+                        <div>
+                            <p>Password:</p>
+                            <input type="password" name="userpass" id="userpass" placeholder="Enter Password">
+                        </div>
+                        <div class="submitbtnarea">
+                            <br>
+                            <button type="submit" id>Sign Up</button>
+                        </div>
+                        
                     </form>
                 </div>
             </div>

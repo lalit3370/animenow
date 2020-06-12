@@ -8,9 +8,9 @@
 --footcolor:white;
 --footbgcolor: #333;
 --homeiconacolor:white;
---searchbordercolor: rgb(218, 218, 218);
---searchbgcolor: rgb(29, 29, 29);
---searchcolor: rgb(189, 189, 189);
+--searchbordercolor: #dadada;
+--searchbgcolor: #1d1d1d;
+--searchcolor: #bdbdbd;
 --topnavbgcolor: #333;
 --topnavacolor: #f2f2f2;
 --topnavaActivebgcolor: #f39c12;
@@ -440,7 +440,7 @@ transform: scale(1.1);
   height:17px;
   border-radius: 200px;
 }
-/* for search.php */
+/* for search */
 label{
   color: aliceblue;
 }
@@ -449,7 +449,7 @@ label{
   grid-template-columns: 1fr 15fr;
   margin: 5px;
 }
-.test{
+.genrefilter{
   display: grid;
   grid-template-columns: repeat(8, 1fr);
 }
