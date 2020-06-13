@@ -33,16 +33,16 @@
     <div class="wrapper">
         <div id="navbar">
             <div id="homeicon">
-                <a href="home.html">AnimeNow</a>
+                <a href="/home">AnimeNow</a>
             </div>
             <div class="topnav">
-                <a href="home.html" class="active">Home</a>
-                <a href="list.html">List</a>
+                <a href="/home" class="active">Home</a>
+                <a href="/list">List</a>
                 <div class="dropdown">
                     <button class="dropbtn">Genre</button>
                     <div class="dropdown-content">
                         <div>
-                            <form action="genre.php" method="GET">
+                            <form action="/genre" method="GET">
                                 <div><button type="submit" class="genreid" value="1" name="genrebtn">Action</button>
                                 </div>
                                 <div><button type="submit" class="genreid" value="2" name="genrebtn">Adventure</div>
@@ -56,7 +56,7 @@
                         </div>
 
                         <div>
-                            <form action="genre.php" method="GET">
+                            <form action="/genre" method="GET">
                                 <div><button type="submit" class="genreid" value="10" name="genrebtn">Fantasy</button>
                                 </div>
                                 <div><button type="submit" class="genreid" value="16" name="genrebtn">Magic</button>
@@ -71,7 +71,7 @@
                         </div>
 
                         <div>
-                            <form action="genre.php" method="GET">
+                            <form action="/genre" method="GET">
                                 <div><button type="submit" class="genreid" value="40"
                                         name="genrebtn">Psychological</button></div>
                                 <div><button type="submit" class="genreid" value="22" name="genrebtn">Romance</button>
@@ -87,31 +87,50 @@
             </div>
 
             <div class="searcharea">
-                <form action="search.php" method="POST" id="searchform">
+                <form action="/search" method="POST" id="searchform">
                     <input type="text" id="search" name="searchkey" placeholder="Press Enter to Search">
                 </form>
             </div>
-            <div id="acctarea">
-                <a href="#login">Login</a>
-                <a href="#signup">Signup</a>
-                <div id="acctdropdown">
-                    <button id="acctdropbtn"><i class="fas fa-cog fa-2x"></i></button>
-                    <div id="acctdropcontent">
-                        <p>
-                            Turn Dark theme ON/OFF
-                        </p>
-                        <div id="themesliderdiv">
-                            <button id="themeslider" onclick="changetheme()">
-                            </button>
+            <% if(typeof user !='undefined'){%>
+                <%console.log(user);%>
+                <div id="acctarea">
+                    <a href="/home">Welcome, <%=user.username%> </a>
+                    <div id="acctdropdown">
+                        <button id="acctdropbtn"><i class="fas fa-cog fa-2x"></i></button>
+                        <div id="acctdropcontent">
+                            <p>
+                                Turn Dark theme ON/OFF
+                            </p>
+                            <div id="themesliderdiv">
+                                <button id="themeslider" onclick="changetheme()">
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            <% }   else { %>
+                <div id="acctarea">
+                    <a href="/login">Login</a>
+                    <a href="/signup">Signup</a>
+                    <div id="acctdropdown">
+                        <button id="acctdropbtn"><i class="fas fa-cog fa-2x"></i></button>
+                        <div id="acctdropcontent">
+                            <p>
+                                Turn Dark theme ON/OFF
+                            </p>
+                            <div id="themesliderdiv">
+                                <button id="themeslider" onclick="changetheme()">
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <%}%>
         </div>
         <div id="mid">
             <div class="row" id="midrow">
                 <!-- <div class="filter">
-                    <form action="advsearch.php" method="post" id="advsearch">
+                    <form action="adv/search" method="post" id="advsearch">
                         <div class="typearea">
                             <div>
                                 <label for="type">Type</label>

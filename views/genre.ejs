@@ -90,22 +90,41 @@
                     <input type="text" id="search" name="searchkey" placeholder="Press Enter to Search">
                 </form>
             </div>
-            <div id="acctarea">
-                <a href="/login">Login</a>
-                <a href="/signup">Signup</a>
-                <div id="acctdropdown">
-                    <button id="acctdropbtn"><i class="fas fa-cog fa-2x"></i></button>
-                    <div id="acctdropcontent">
-                        <p>
-                            Turn Dark theme ON/OFF
-                        </p>
-                        <div id="themesliderdiv">
-                            <button id="themeslider" onclick="changetheme()">
-                            </button>
+            <% if(typeof user !='undefined'){%>
+                <%console.log(user);%>
+                <div id="acctarea">
+                    <a href="/home">Welcome, <%=user.username%> </a>
+                    <div id="acctdropdown">
+                        <button id="acctdropbtn"><i class="fas fa-cog fa-2x"></i></button>
+                        <div id="acctdropcontent">
+                            <p>
+                                Turn Dark theme ON/OFF
+                            </p>
+                            <div id="themesliderdiv">
+                                <button id="themeslider" onclick="changetheme()">
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            <% }   else { %>
+                <div id="acctarea">
+                    <a href="/login">Login</a>
+                    <a href="/signup">Signup</a>
+                    <div id="acctdropdown">
+                        <button id="acctdropbtn"><i class="fas fa-cog fa-2x"></i></button>
+                        <div id="acctdropcontent">
+                            <p>
+                                Turn Dark theme ON/OFF
+                            </p>
+                            <div id="themesliderdiv">
+                                <button id="themeslider" onclick="changetheme()">
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <%}%>
         </div>
         <div id="mid">
             <div class="row" id="midrow">

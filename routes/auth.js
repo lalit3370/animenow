@@ -3,9 +3,7 @@ var router = express.Router();
 const path = require('path');
 var User = require('../models/User');
 var passport = require('passport');
-var localStrategy = require('passport-local').Strategy;
 const bcrypt = require('bcryptjs');
-const saltRounds = 10;
 
 router.get('/signup', (req, res) => {
   res.render('signup');
