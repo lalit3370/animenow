@@ -1,29 +1,87 @@
-var express=require('express');
-var router=express.Router();
+var express = require('express');
+var router = express.Router();
 const path = require('path');
+var User = require('../models/User');
+var passport = require('passport');
+var localStrategy = require('passport-local').Strategy;
+const bcrypt = require('bcryptjs');
+const saltRounds = 10;
 
 router.get('/signup', (req, res) => {
-    res.sendFile(path.join(__dirname,'../','views','signup.html'));
-});
-const { check, validationResult } = require('express-validator');
-
-router.post('/signup',[
-    check('username').notEmpty(),
-    check('userpass').notEmpty()
-  ],(req,res)=>{
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-      return res.status(422).json({ errors: errors.array() });
-    }
-    var username= req.body.username;
-    var password= req.body.userpass;
-    console.log(password);
+  res.render('signup');
 });
 router.get('/login', (req, res) => {
-    res.sendFile(path.join(__dirname,'../','views','login.html'));
-});
-router.get((req,res,next)=>{
-    res.status(404).render('404',{pageTitle: 'Page not found'});
+  res.render('login');
 });
 
-module.exports=router;
+//Signup
+
+router.post('/signup', (req, res) => {
+  console.log("/signup");
+  let errors = [];
+  const username = req.body.username;
+  const password = req.body.password;
+  console.log(username);
+  console.log(password);
+  const password2 = req.body.password2;
+  if (!username || !password || !password2) {
+    errors.push({ msg: 'Please enter all fields' });
+  }
+
+  if (password != password2) {
+    errors.push({ msg: 'Passwords do not match' });
+  }
+
+  if (password.length < 6) {
+    errors.push({ msg: 'Password must be at least 6 characters' });
+  }
+  if (errors.length > 0) {
+    res.render('signup', { errors });
+  } else {
+    User.findOne({ username: username })
+      .then(user => {
+        if (user) {
+          errors.push({ msg: 'Username already exists' });
+          res.render('signup', {
+            errors,
+            username,
+            password,
+            password2
+          });
+        } else {
+          const newUser = new User({
+            username,
+            password
+          });
+          bcrypt.genSalt(10, (err, salt) => {
+            bcrypt.hash(newUser.password, salt, (err, hash) => {
+              if (err) throw err;
+              newUser.password = hash;
+              newUser.save()
+                .then(
+                  user => {
+                    req.flash('success_msg', "you're now registered and can log in");
+                    res.redirect('/login');
+                  }
+                ).catch(err => console.log(err));
+            })
+          })
+        }
+      });
+
+  }
+}
+);
+//Login
+
+router.post('/login', (req, res, next)=>{
+  passport.authenticate('local', { 
+    successRedirect: '/', 
+    failureRedirect: '/login', 
+    failureFlash: true })(req, res, next);
+});
+
+router.get((req, res, next) => {
+  res.status(404).render('404', { pageTitle: 'Page not found' });
+});
+module.exports = router;

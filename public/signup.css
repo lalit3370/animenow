@@ -16,7 +16,7 @@ box-shadow: 2px 2px 3px -1px rgba(0,0,0,0.75);
 .signuparea p{
     color: white;
 }
-#username,#userpass{
+#username,.userpass{
     padding: 10px;
     background-color:#1d1d1d;
     border-style: solid;
@@ -25,7 +25,7 @@ box-shadow: 2px 2px 3px -1px rgba(0,0,0,0.75);
     color: #bdbdbd;
     border-radius: 3px;
 }
-#username:focus,#userpass:focus{
+#username:focus,.userpass:focus{
     border-color: #f39c12;
 }
 /* .submitbtnarea{
@@ -41,9 +41,15 @@ box-shadow: 2px 2px 3px -1px rgba(0,0,0,0.75);
     color: white;
     border-style: none;
     border-radius: 3px;
+    transition: background-color 5ms;
 }
 .submitbtnarea button:focus{
     border-style: solid;
     border: 1px;
     border-color: black;
+}
+.submitbtnarea button:hover{
+    /* transition-timing-function: ease-in; */
+    /* transition-duration: 1ms; */
+    background-color: #f39d12ea;
 }

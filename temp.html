@@ -1,0 +1,54 @@
+<% if(typeof(errors)!='undefined'){ %>
+    <%for(i=0;i<errors.length ;i++){%>
+        <div style="color:white;"><%=errors[i].msg%> in <%=errors[i].param%></div>
+    <%}%>
+<% } %>
+
+// passport.use(new localStrategy(
+//   function(username, password , done){
+//     user.getUserByUsername(username,function(err,user){
+//       if(err) throw err;
+//       if(!user){
+//         return done(null, false, {message: 'Unknown user'});
+//       }
+//       user.comparePassword(password, user.password, function(err, isMatch){
+//         if(err) throw err;
+//         if(isMatch){
+//           return done(null, user);
+//         } else {
+//           return done(null, false, {message: 'invalid password'});
+//         }
+//       });
+//     });
+//   }));
+// passport.serializeUser(function(user, done) {
+//     done(null, user.id);
+//   });
+  
+// passport.deserializeUser(function(id, done) {
+//     User.getUserById(id, function(err, user) {
+//       done(err, user);
+//     });
+//   });
+
+//  [
+//   check('username').notEmpty(),
+//   check('password').notEmpty()
+// ],(req,res)=>{
+//   const errors = validationResult(req);
+//   if (!errors.isEmpty()) {
+//     res.status(422).render('signup',{ errors: errors.array() });
+//   } else {
+//     user.createUser(newUser, function(err,user){
+//       if(err) throw err;
+//       console.log(user);
+//     });
+//     res.redirect('/login');
+//     // res.render('login',{newusercheck:1});
+// });
+
+
+<%- include('partials/messages.ejs') %>  
+<%if(typeof(newusercheck)!='undefined'){%>
+    <div class="alert alert-success">You've successfully registered,<br> you can now login.</div>
+<%}%>

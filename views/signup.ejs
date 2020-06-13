@@ -84,14 +84,19 @@
         <div id="mid">
             <div class="row row1" >
                 <div class="signuparea">
+                    <%- include('./partials/messages.ejs')%>
                     <form action="/signup" method="post">
                         <div>
-                            <p>Username:</p> 
+                        <p>Username:</p>
                             <input type="text" name="username" id="username" placeholder="Enter Username">
                         </div>
                         <div>
                             <p>Password:</p>
-                            <input type="password" name="userpass" id="userpass" placeholder="Enter Password">
+                            <input type="password" name="password" class="userpass" placeholder="Enter Password">
+                        </div>
+                        <div>
+                            <p>Password:</p>
+                            <input type="password" name="password2" class="userpass" placeholder="Confirm Password">
                         </div>
                         <div class="submitbtnarea">
                             <br>
