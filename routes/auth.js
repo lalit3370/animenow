@@ -78,7 +78,10 @@ router.post('/login', (req, res, next)=>{
     failureRedirect: '/login', 
     failureFlash: true })(req, res, next);
 });
-
+router.get('/logout',(req,res)=>{
+  req.logout();
+  res.redirect('/');
+});
 router.get((req, res, next) => {
   res.status(404).render('404', { pageTitle: 'Page not found' });
 });

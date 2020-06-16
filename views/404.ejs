@@ -6,26 +6,29 @@
     <link href="https://fonts.googleapis.com/css?family=Oxygen|Trade+Winds&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
         integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="home.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
     <title><%= pageTitle %></title>
 </head>
 
 <body>
     <div class="wrapper">
-        <div id="navbar">
+        <nav>
             <div id="homeicon">
                 <a href="/">AnimeNow</a>
             </div>
             <div class="topnav">
-                <a href="/" class="active">Home</a>
+                <a href="/">Home</a>
                 <a href="/list">List</a>
-                <div class="dropdown">
-                    <button class="dropbtn">Genre</button>
-                    <div class="dropdown-content">
+                <div class="genredropdown">
+                    <a class="genredropbtn">Genre</a>
+                    <div class="genredropdown-content">
                         <div>
                             <form action="/genre" method="POST">
                                 <div><button type="submit" class="genreid" value="1" name="genrebtn">Action</button>
@@ -72,46 +75,28 @@
             </div>
 
             <div class="searcharea">
-                <form action="search.php" method="GET" id="searchform">
-                    <input type="text" id="search" name="searchkey" placeholder="Press Enter to Search">
+                <form action="/search" method="POST" id="searchform">
+                    <input type="text" id="search" name="searchkey" placeholder="Search">
+                    <button type="submit" class="bootstrapbtn white">Search</button>
                 </form>
             </div>
             <% if(typeof user !='undefined'){%>
-                <%console.log(user);%>
-                <div id="acctarea">
-                    <a href="/home">Welcome, <%=user.username%> </a>
-                    <div id="acctdropdown">
-                        <button id="acctdropbtn"><i class="fas fa-cog fa-2x"></i></button>
-                        <div id="acctdropcontent">
-                            <p>
-                                Turn Dark theme ON/OFF
-                            </p>
-                            <div id="themesliderdiv">
-                                <button id="themeslider" onclick="changetheme()">
-                                </button>
-                            </div>
-                        </div>
-                    </div>
+            <%console.log(user);%>
+            <div class="acctarea">
+                <a href="/home" id="acctname">Welcome, <%=user.username%></a>
+                <div id="acctdropcontent">
+                    <a href="/profile" class="acctlinks">Profile</a>
+                    <a href="/setting" class="acctlinks">Settings</a>
+                    <a href="/logout" class="acctlinks">Logout</a>
                 </div>
-            <% }   else { %>
-                <div id="acctarea">
-                    <a href="/login">Login</a>
-                    <a href="/signup">Signup</a>
-                    <div id="acctdropdown">
-                        <button id="acctdropbtn"><i class="fas fa-cog fa-2x"></i></button>
-                        <div id="acctdropcontent">
-                            <p>
-                                Turn Dark theme ON/OFF
-                            </p>
-                            <div id="themesliderdiv">
-                                <button id="themeslider" onclick="changetheme()">
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            <%}%>
-        </div>
+            </div>
+            <% } else {%>
+            <div class="acctarea">
+                <a href="/login">Login</a>
+                <a href="/signup">Signup</a>
+            </div>
+            <% }%>
+        </nav>
         <div id="mid">
             <div class="row row1">
                 <h1 style="color :white;">The page you were looking for doesn't exist</h1>

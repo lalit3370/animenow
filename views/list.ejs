@@ -2,56 +2,117 @@
 <html lang="en">
 
 <head>
-    <script src="homestyle.js"></script>
+    <!-- <script src="homestyle.js"></script> -->
     <link href="https://fonts.googleapis.com/css?family=Oxygen|Trade+Winds&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
         integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-    <link rel="stylesheet" href="list.css">
+    <!-- <link rel="stylesheet" href="list.css"> -->
     <link rel="stylesheet" href="home.css">
-    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"> -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
     <title>AnimeNow</title>
+    <style>
+        #midrow ul {
+            padding: 5px;
+            margin: 0px;
+        }
+
+        .anilink {
+            text-decoration: none;
+            color: white;
+            padding: 5px;
+            font-family: 'sans-serif';
+            /* font: 1em sans-serif; */
+        }
+
+        .anilink:visited {
+            color: white;
+        }
+
+        .row h1 {
+            color: white;
+        }
+
+        .anilink:hover {
+            color: #f39c12;
+            text-decoration: underline;
+        }
+        .listsection {
+            display: none;
+            color: white;
+            /* display: grid; */
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+        }
+
+        .gotoSection {
+            display: none;
+            font: 1em sans-serif;
+            color: white;
+            text-decoration: none;
+            font-size: 25px;
+            
+        }
+        .gotoSectionDiv{
+            display: grid;
+            grid-template-columns: repeat(27,1fr);
+        }
+    </style>
 </head>
 
 <body>
     <div class="wrapper">
-        <div id="navbar">
+        <nav>
             <div id="homeicon">
-                <a href="/home">AnimeNow</a>
+                <a href="/">AnimeNow</a>
             </div>
             <div class="topnav">
                 <a href="/">Home</a>
                 <a href="/list" class="active">List</a>
-                <div class="dropdown">
-                    <button class="dropbtn">Genre</button>
-                    <div class="dropdown-content">
+                <div class="genredropdown">
+                    <a class="genredropbtn">Genre</a>
+                    <div class="genredropdown-content">
                         <div>
                             <form action="/genre" method="POST">
-                                <div><button type="submit" class="genreid" value="1" name="genrebtn">Action</button></div>
+                                <div><button type="submit" class="genreid" value="1" name="genrebtn">Action</button>
+                                </div>
                                 <div><button type="submit" class="genreid" value="2" name="genrebtn">Adventure</div>
-                                <div><button type="submit" class="genreid" value="4" name="genrebtn">Comedy</button></div>
-                                <div><button type="submit" class="genreid" value="8" name="genrebtn">Drama</button></div>
-                                <div><button type="submit" class="genreid" value="36" name="genrebtn">Slice of Life</button></div>
+                                <div><button type="submit" class="genreid" value="4" name="genrebtn">Comedy</button>
+                                </div>
+                                <div><button type="submit" class="genreid" value="8" name="genrebtn">Drama</button>
+                                </div>
+                                <div><button type="submit" class="genreid" value="36" name="genrebtn">Slice of
+                                        Life</button></div>
                             </form>
                         </div>
 
                         <div>
                             <form action="/genre" method="POST">
-                                <div><button type="submit" class="genreid" value="10" name="genrebtn">Fantasy</button></div>
-                                <div><button type="submit" class="genreid" value="16" name="genrebtn">Magic</button></div>
-                                <div><button type="submit" class="genreid" value="37" name="genrebtn">Supernatural</button></div>
-                                <div><button type="submit" class="genreid" value="14" name="genrebtn">Horror</button></div>
-                                <div><button type="submit" class="genreid" value="7" name="genrebtn">Mystery</button></div>
+                                <div><button type="submit" class="genreid" value="10" name="genrebtn">Fantasy</button>
+                                </div>
+                                <div><button type="submit" class="genreid" value="16" name="genrebtn">Magic</button>
+                                </div>
+                                <div><button type="submit" class="genreid" value="37"
+                                        name="genrebtn">Supernatural</button></div>
+                                <div><button type="submit" class="genreid" value="14" name="genrebtn">Horror</button>
+                                </div>
+                                <div><button type="submit" class="genreid" value="7" name="genrebtn">Mystery</button>
+                                </div>
                             </form>
                         </div>
 
                         <div>
                             <form action="/genre" method="POST">
-                                <div><button type="submit" class="genreid" value="40" name="genrebtn">Psychological</button></div>
-                                <div><button type="submit" class="genreid" value="22" name="genrebtn">Romance</button></div>
-                                <div><button type="submit" class="genreid" value="24" name="genrebtn">Sci-Fi</button></div>
+                                <div><button type="submit" class="genreid" value="40"
+                                        name="genrebtn">Psychological</button></div>
+                                <div><button type="submit" class="genreid" value="22" name="genrebtn">Romance</button>
+                                </div>
+                                <div><button type="submit" class="genreid" value="24" name="genrebtn">Sci-Fi</button>
+                                </div>
                             </form>
                         </div>
                     </div>
@@ -62,51 +123,223 @@
 
             <div class="searcharea">
                 <form action="/search" method="POST" id="searchform">
-                    <input type="text" id="search" name="searchkey" placeholder="Press Enter to Search">
+                    <input type="text" id="search" name="searchkey" placeholder="Search">
+                    <button type="submit" class="bootstrapbtn white">Search</button>
                 </form>
             </div>
             <% if(typeof user !='undefined'){%>
-                <%console.log(user);%>
-                <div id="acctarea">
-                    <a href="/home">Welcome, <%=user.username%> </a>
-                    <div id="acctdropdown">
-                        <button id="acctdropbtn"><i class="fas fa-cog fa-2x"></i></button>
-                        <div id="acctdropcontent">
-                            <p>
-                                Turn Dark theme ON/OFF
-                            </p>
-                            <div id="themesliderdiv">
-                                <button id="themeslider" onclick="changetheme()">
-                                </button>
-                            </div>
-                        </div>
-                    </div>
+            <%console.log(user);%>
+            <div class="acctarea">
+                <a href="/home" id="acctname">Welcome, <%=user.username%></a>
+                <div id="acctdropcontent">
+                    <a href="/profile" class="acctlinks">Profile</a>
+                    <a href="/setting" class="acctlinks">Settings</a>
+                    <a href="/logout" class="acctlinks">Logout</a>
                 </div>
-            <% }   else { %>
-                <div id="acctarea">
-                    <a href="/login">Login</a>
-                    <a href="/signup">Signup</a>
-                    <div id="acctdropdown">
-                        <button id="acctdropbtn"><i class="fas fa-cog fa-2x"></i></button>
-                        <div id="acctdropcontent">
-                            <p>
-                                Turn Dark theme ON/OFF
-                            </p>
-                            <div id="themesliderdiv">
-                                <button id="themeslider" onclick="changetheme()">
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            <%}%>
-        </div>
+            </div>
+            <% } else {%>
+            <div class="acctarea">
+                <a href="/login">Login</a>
+                <a href="/signup">Signup</a>
+            </div>
+            <% }%>
+        </nav>
         <!-- MID AREA -->
         <div id="mid">
             <div class="row" id="midrow">
                 <h1>List</h1>
+                <div class="gotoSectionDiv">
+                    <a href="#specialchar" id="goto#" class="gotoSection">#</a>
+                    <a href="#A" id="gotoA" class="gotoSection">A</a>
+                    <a href="#B" id="gotoB" class="gotoSection">B</a>
+                    <a href="#C" id="gotoC" class="gotoSection">C</a>
+                    <a href="#D" id="gotoD" class="gotoSection">D</a>
+                    <a href="#E" id="gotoE" class="gotoSection">E</a>
+                    <a href="#F" id="gotoF" class="gotoSection">F</a>
+                    <a href="#G" id="gotoG" class="gotoSection">G</a>
+                    <a href="#H" id="gotoH" class="gotoSection">H</a>
+                    <a href="#I" id="gotoI" class="gotoSection">I</a>
+                    <a href="#J" id="gotoJ" class="gotoSection">J</a>
+                    <a href="#K" id="gotoK" class="gotoSection">K</a>
+                    <a href="#L" id="gotoL" class="gotoSection">L</a>
+                    <a href="#M" id="gotoM" class="gotoSection">M</a>
+                    <a href="#N" id="gotoN" class="gotoSection">N</a>
+                    <a href="#O" id="gotoO" class="gotoSection">O</a>
+                    <a href="#P" id="gotoP" class="gotoSection">P</a>
+                    <a href="#Q" id="gotoQ" class="gotoSection">Q</a>
+                    <a href="#R" id="gotoR" class="gotoSection">R</a>
+                    <a href="#S" id="gotoS" class="gotoSection">S</a>
+                    <a href="#T" id="gotoT" class="gotoSection">T</a>
+                    <a href="#U" id="gotoU" class="gotoSection">U</a>
+                    <a href="#V" id="gotoV" class="gotoSection">V</a>
+                    <a href="#W" id="gotoW" class="gotoSection">W</a>
+                    <a href="#X" id="gotoX" class="gotoSection">X</a>
+                    <a href="#Y" id="gotoY" class="gotoSection">Y</a>
+                    <a href="#Z" id="gotoZ" class="gotoSection">Z</a>
+                </div>
+               
                 <div id="listcol">
-
+                    <section id="specialchar" class="listsection">
+                        <h1>#</h1>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </section>
+                    <section id="A" class="listsection">
+                        <h1>A</h1>
+                        <div></div>
+                        <div></div>
+                    </section>
+                    <section id="B" class="listsection">
+                        <h1>B</h1>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </section>
+                    <section id="C" class="listsection">
+                        <h1>C</h1>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </section>
+                    <section id="D" class="listsection">
+                        <h1>D</h1>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </section>
+                    <section id="E" class="listsection">
+                        <h1>E</h1>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </section>
+                    <section id="F" class="listsection">
+                        <h1>F</h1>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </section>
+                    <section id="G" class="listsection">
+                        <h1>G</h1>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </section>
+                    <section id="H" class="listsection">
+                        <h1>H</h1>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </section>
+                    <section id="I" class="listsection">
+                        <h1>I</h1>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </section>
+                    <section id="J" class="listsection">
+                        <h1>J</h1>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </section>
+                    <section id="K" class="listsection">
+                        <h1>K</h1>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </section>
+                    <section id="L" class="listsection">
+                        <h1>L</h1>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </section>
+                    <section id="M" class="listsection">
+                        <h1>M</h1>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </section>
+                    <section id="N" class="listsection">
+                        <h1>N</h1>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </section>
+                    <section id="O" class="listsection">
+                        <h1>O</h1>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </section>
+                    <section id="P" class="listsection">
+                        <h1>P</h1>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </section>
+                    <section id="Q" class="listsection">
+                        <h1>Q</h1>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </section>
+                    <section id="R" class="listsection">
+                        <h1>R</h1>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </section>
+                    <section id="S" class="listsection">
+                        <h1>S</h1>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </section>
+                    <section id="T" class="listsection">
+                        <h1>T</h1>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </section>
+                    <section id="U" class="listsection">
+                        <h1>U</h1>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </section>
+                    <section id="V" class="listsection">
+                        <h1>V</h1>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </section>
+                    <section id="W" class="listsection">
+                        <h1>W</h1>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </section>
+                    <section id="X" class="listsection">
+                        <h1>X</h1>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </section>
+                    <section id="Y" class="listsection">
+                        <h1>Y</h1>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </section>
+                    <section id="Z" class="listsection">
+                        <h1>Z</h1>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </section>
                 </div>
             </div>
         </div>
@@ -122,41 +355,3 @@
 </body>
 
 </html>
-                <!-- <div>
-                <form action="getlist()" id="startword">
-                    <button>#</button>
-                    <button>A</button>
-                    <button>B</button>
-                    <button>C</button>
-                    <button>D</button>
-                    <button>E</button>
-                    <button>F</button>
-                    <button>G</button>
-                    <button>H</button>
-                    <button>I</button>
-                    <button>J</button>
-                    <button>K</button>
-                    <button>L</button>
-                    <button>M</button>
-                    <button>N</button>
-                    <button>O</button>
-                    <button>P</button>
-                    <button>Q</button>
-                    <button>R</button>
-                    <button>S</button>
-                    <button>T</button>
-                    <button>U</button>
-                    <button>V</button>
-                    <button>W</button>
-                    <button>X</button>
-                    <button>Y</button>
-                    <button>Z</button>
-                </form>
-                </div>
-                <table id="anilisttable">
-                    <tr>
-                        <th>S.No.</th>
-                        <th>Title</th>
-                        <th>Mal</th>
-                    </tr>
-                </table> -->
