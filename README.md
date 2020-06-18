@@ -1,8 +1,11 @@
 # animenow
-Anime showcasing website powered by Jikan API
 
-This is a anime database website powered by Jikan Api.
-You can view new, trending, top anime on the homepage.
-You can view the list of all anime in sorted order
+Anime tracking website powered by Jikan API (Unofficial MAL API)
+
+View New, Top & Trending Anime, browse by filters or simply view the list.
+
+Add Anime to your Profile to keep track of it, and review your current anime.
+
+View anime memes or Animemes posted by other user or upload your own!
 
 ![Home Preview](animenowhome.png)
