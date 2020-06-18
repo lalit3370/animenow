@@ -3,8 +3,6 @@ var router=express.Router();
 const path = require('path');
 
 router.get('/list',(req,res)=>{
-    console.log("in list",req.body);
-    console.log("in list",req.user);
     res.render('list',{user:req.user});
 
 })
@@ -15,8 +13,10 @@ router.post('/search',(req,res)=>{
     res.render('search',{searchkey:req.body.searchkey, user:req.user});
 })
 router.get('/',(req,res)=>{
-    // res.sendFile(path.join(__dirname,'../','views','home.html'));
     res.render('home',{user:req.user});
+})
+router.get('/animemes',(req,res)=>{
+    res.render('animemes',{user:req.user});
 })
 router.get((req,res,next)=>{
     console.log('404');

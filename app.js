@@ -1,24 +1,24 @@
+// to connect to mongo either create key.js inside .config or directly paste mongourl  into var db= mongouri
 var path = require('path');
 var express = require('express');
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
-// var expressValidator = require('express-validator');
 var session = require('express-session');
 var passport = require('passport');
-// var LocalStrategy = require('passport-local');
 const flash = require('connect-flash');
+var db = require('./config/keys').MongoURI;
 var mongo = require('mongodb');
 var mongoose = require('mongoose');
-
 mongoose.set('useCreateIndex', true);
-mongoose.connect('mongodb+srv://lalit:lalit123@cluster0-fvaxm.gcp.mongodb.net/animenow', { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(()=>console.log("MongoDB Connected..."))
     .catch(err=>console.log(err));
-var db = mongoose.connection;
+
 require('./config/passport')(passport);
 
 var homeRoutes = require('./routes/home');
 var authRoutes = require('./routes/auth');
+var userRoutes = require('./routes/user');
 
 var app = express(); 
 app.set('view engine', 'ejs');
@@ -44,9 +44,20 @@ app.use(function (req, res, next) {
     res.locals.error = req.flash('error');
     next();
 });
+//allow use of public folder
 app.use(express.static(path.join(__dirname, 'public')));
-
+//using routes
 app.use(authRoutes);
 app.use(homeRoutes);
+app.use(userRoutes);
 
-app.listen(3000);
+var port=3000;
+app.listen(port,()=>{
+    console.log("Server started on Port "+port);
+});
+
+process.once('SIGUSR2', function () {
+    server.close(function () {
+      process.kill(process.pid, 'SIGUSR2')
+    })
+  });
