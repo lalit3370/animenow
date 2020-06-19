@@ -18,7 +18,7 @@ require('./config/passport')(passport);
 
 var homeRoutes = require('./routes/home');
 var authRoutes = require('./routes/auth');
-var userRoutes = require('./routes/user');
+var animemeRoutes = require('./routes/animeme');
 
 var app = express(); 
 app.set('view engine', 'ejs');
@@ -49,15 +49,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 //using routes
 app.use(authRoutes);
 app.use(homeRoutes);
-app.use(userRoutes);
+app.use(animemeRoutes);
 
 var port=3000;
 app.listen(port,()=>{
     console.log("Server started on Port "+port);
 });
-
-process.once('SIGUSR2', function () {
-    server.close(function () {
-      process.kill(process.pid, 'SIGUSR2')
-    })
-  });

@@ -15,12 +15,12 @@ router.get('/login', (req, res) => {
 //Signup
 
 router.post('/signup', (req, res) => {
-  console.log("/signup");
+  // console.log("/signup");
   let errors = [];
   const username = req.body.username;
   const password = req.body.password;
-  console.log(username);
-  console.log(password);
+  // console.log(username);
+  // console.log(password);
   const password2 = req.body.password2;
   if (!username || !password || !password2) {
     errors.push({ msg: 'Please enter all fields' });
