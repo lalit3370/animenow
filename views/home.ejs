@@ -4,16 +4,18 @@
 <head>
     <script src="homestyle.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Oxygen|Trade+Winds&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"> -->
+    <script src="https://kit.fontawesome.com/8bdcc132e6.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="bootstrap.min.css">
     <link rel="stylesheet" href="home.css">
+    <!-- <link rel="stylesheet" href="icons.css"> -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
     <title>AnimeNow</title>
 </head>
@@ -82,7 +84,7 @@
                 </form>
             </div>
             <% if(typeof user !='undefined'){%>
-           
+
             <div class="acctarea">
                 <a href="/home" id="acctname">Welcome, <%=user.username%></a>
                 <div id="acctdropcontent">
@@ -105,52 +107,49 @@
                 </div>
                 <div class="buttonplace">
                     <div><button class="leftbutton" id="but1"><i class="fas fa-angle-left fa-5x"></i></button></div>
-                
-                
+
+
                     <div class="animethumbarea" id="newanime">
-                       <!--  NEWANIME --> 
+                        <!--  NEWANIME -->
                     </div>
                     <div><button class="rightbutton" id="but2"><i class="fas fa-angle-right fa-5x"></i></button></div>
                 </div>
 
 
             </div>
-            <div>
-                <div class="row">
-                    <div class="rowheadingarea">
-                        <div class="rowheading">Trending</div>
+
+            <div class="row">
+                <div class="rowheadingarea">
+                    <div class="rowheading">Trending</div>
+                </div>
+                <div class="buttonplace">
+                    <div><button class="leftbutton" id="but3"><i class="fas fa-angle-left fa-5x"></i></button></div>
+                    <div class="animethumbarea" id="trendanime">
+                        <!-- TRENDANIME -->
                     </div>
-                    <div class="buttonplace">
-                        <div><button class="leftbutton" id="but3"><i class="fas fa-angle-left fa-5x"></i></button></div>
-                        <div class="animethumbarea" id="trendanime">
-                            <!-- TRENDANIME -->
-                        </div>
-                        <div><button class="rightbutton" id="but4"><i class="fas fa-angle-right fa-5x"></i></button></div>
-                    </div> 
+                    <div><button class="rightbutton" id="but4"><i class="fas fa-angle-right fa-5x"></i></button></div>
                 </div>
             </div>
-            <div>
-                <div class="row">
-                    <div class="rowheadingarea">
-                        <div class="rowheading">Top Charts</div>
-                    </div>
-                    <div class="buttonplace">
-                        <div><button class="leftbutton" id="but5"><i class="fas fa-angle-left fa-5x"></i></button></div>
-                        <div class="animethumbarea" id="topanime">
-                            <!-- TOPANIME -->
-                        </div>
-                        <div><button class="rightbutton" id="but6"><i class="fas fa-angle-right fa-5x"></i></button></div>
-                    </div>
-                    
 
-                    
+            <div class="row">
+                <div class="rowheadingarea">
+                    <div class="rowheading">Top Charts</div>
                 </div>
+                <div class="buttonplace">
+                    <div><button class="leftbutton" id="but5"><i class="fas fa-angle-left fa-5x"></i></button></div>
+                    <div class="animethumbarea" id="topanime">
+                        <!-- TOPANIME -->
+                    </div>
+                    <div><button class="rightbutton" id="but6"><i class="fas fa-angle-right fa-5x"></i></button></div>
+                </div>
+
             </div>
 
         </div>
         <div id="foot">
             <div>
                 About Us
+
             </div>
             <div>
                 Contact Us
@@ -160,4 +159,4 @@
         <script src="home.js"></script>
 </body>
 
-</htmGET
+</html>

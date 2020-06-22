@@ -1,0 +1,14 @@
+.check-mark-square{
+    background: url('/icons/check-mark-square.svg');
+    height: 40px;
+    width: 40px;
+    display: block;
+    /* background-color: teal; */
+}
+.plus-square{
+    background: url('/icons/plus-square.svg');
+    height: 40px;
+    width: 40px;
+    display: block;
+    color: teal;
+}

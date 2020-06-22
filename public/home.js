@@ -109,11 +109,12 @@ function getnew() {
     request.send();
     request.onload = function () {
         newdata = request.response;
+        console.log(newdata);
         // console.log(newdata);
         var d1 = document.getElementById('newanime');
         for (var i = 0; i < 6; i++) {
             const element = newdata.anime[i];
-            d1.insertAdjacentHTML('beforeend', '<div class="animethumbs"><img src=' + element.image_url + ' alt="Error Displaying the image"><div class="imagetext"><p>' + element.title + '</p></div>');
+            d1.insertAdjacentHTML('beforeend', '<div class="animethumbs"><i class="fas fa-plus-square fa-2x" id="test1"></i><img src=' + element.image_url + ' alt="Error Displaying the image"><div class="imagetext"><p>' + element.title + '</p></div>');
         }
     }
 }
