@@ -1,4 +1,4 @@
-# animenow
+# AnimeNow
 
 Anime tracking website powered by Jikan API (Unofficial MAL API)
 
