@@ -2,10 +2,9 @@
 <html lang="en">
 
 <head>
-    <script src="homestyle.js"></script>
+
+    <!-- <script src="homestyle.js"></script> -->
     <link href="https://fonts.googleapis.com/css?family=Oxygen|Trade+Winds&display=swap" rel="stylesheet">
-    <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"> -->
     <script src="https://kit.fontawesome.com/8bdcc132e6.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="bootstrap.min.css">
     <link rel="stylesheet" href="home.css">
@@ -17,6 +16,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
+    <link rel="stylesheet" href="swiper.min.css">
     <title>AnimeNow</title>
 </head>
 
@@ -105,29 +105,36 @@
                 <div class="rowheadingarea">
                     <div class="rowheading">New</div>
                 </div>
+                <br><br>
                 <div class="buttonplace">
-                    <div><button class="leftbutton" id="but1"><i class="fas fa-angle-left fa-5x"></i></button></div>
+                    <div class="swiper-container new">
+                        <div class="swiper-wrapper" id="newanime">
 
-
-                    <div class="animethumbarea" id="newanime">
-                        <!--  NEWANIME -->
+                        </div>
+                        <!-- Add Pagination -->
+                        <br>
+                        <div class="swiper-pagination"></div>
+                        <!-- Add Arrows -->
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
                     </div>
-                    <div><button class="rightbutton" id="but2"><i class="fas fa-angle-right fa-5x"></i></button></div>
                 </div>
-
-
             </div>
-
             <div class="row">
                 <div class="rowheadingarea">
                     <div class="rowheading">Trending</div>
                 </div>
                 <div class="buttonplace">
-                    <div><button class="leftbutton" id="but3"><i class="fas fa-angle-left fa-5x"></i></button></div>
-                    <div class="animethumbarea" id="trendanime">
-                        <!-- TRENDANIME -->
+                    <div class="swiper-container trend">
+                        <div class="swiper-wrapper" id="trendanime">
+
+                        </div>
+                        <br>
+                        <div class="swiper-pagination"></div>
+                        <!-- Add Arrows -->
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
                     </div>
-                    <div><button class="rightbutton" id="but4"><i class="fas fa-angle-right fa-5x"></i></button></div>
                 </div>
             </div>
 
@@ -136,16 +143,22 @@
                     <div class="rowheading">Top Charts</div>
                 </div>
                 <div class="buttonplace">
-                    <div><button class="leftbutton" id="but5"><i class="fas fa-angle-left fa-5x"></i></button></div>
-                    <div class="animethumbarea" id="topanime">
-                        <!-- TOPANIME -->
+                    <div class="swiper-container top">
+                        <div class="swiper-wrapper" id="topanime">
+
+                        </div>
+                        <!-- Add Pagination -->
+                        <br>
+                        <div class="swiper-pagination"></div>
+                        <!-- Add Arrows -->
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
                     </div>
-                    <div><button class="rightbutton" id="but6"><i class="fas fa-angle-right fa-5x"></i></button></div>
                 </div>
 
             </div>
-
         </div>
+
         <div id="foot">
             <div>
                 About Us
@@ -155,8 +168,13 @@
                 Contact Us
             </div>
         </div>
-        <script src="bootstrap.min.js"></script>
-        <script src="home.js"></script>
+
+    </div>
+
+    <!-- <script src="bootstrap.min.js"></script> -->
+
+    <script src="home.js"></script>
+    <script src="swiper.min.js"></script>
 </body>
 
 </html>

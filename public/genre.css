@@ -22,11 +22,12 @@
 }
 
 body{
-  background: var(--color2); 
+  background: var(--color2);
+  padding-left:20px;
+  padding-right:20px;
 }
 
 .wrapper{
-  /* max-width: 1800px; */
   display: grid;
   grid-template-columns: 1fr;
   padding:0em;
@@ -97,6 +98,8 @@ nav a:hover{
   background-color: var(--color1hover);
 }
 .genredropdown-content {
+  border-radius: 0px 0px 10px 10px;
+  opacity: 0.95;
   margin-top:55px;
   display: none;
   position: absolute;
@@ -104,8 +107,6 @@ nav a:hover{
   box-shadow: var(--dropdowncontentboxshadow);
   z-index: 1;
   padding:1em;
-  border-radius: 0px 0px 10px 10px;
-  opacity: 0.95;
 }
 
 .genreid{
@@ -209,7 +210,7 @@ border-style: solid;
   background-color: transparent;
 }
 .acctlinks:hover{
-  background-color: var(--color8);
+  background-color:/*#313132 */ var(--color8);
   color: var(--color4);
 }
 /* MID AREA */
@@ -232,7 +233,14 @@ border-style: solid;
     grid-template-columns: 1fr;
     position: relative;
 }
-
+.animethumbarea{
+    display: grid;
+    grid-template-columns: repeat(6,225px);
+    grid-column-gap: 3em;
+    justify-content:center;
+    padding:1em;
+    grid-row-gap: 3em;
+}
 .rowheadingarea{
     padding:1em;
     margin:1em;
@@ -249,71 +257,69 @@ border-style: solid;
 .rowheadingarea:hover{
     color: var(--color4);
 }
-
-.buttonplace{
-
-  max-width: 1800px;
-}
-.swiper-container {
-  width: 100%;
-  height: 100%;
-  overflow: visible;
-}
-
-.swiper-slide {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  -webkit-align-items: center;
-  /* align-items: center; */
-}
-
-.animethumbs {
-  max-width: min-content;
+.animethumbs{
   position: relative;
-  z-index: 1;
-  box-shadow: 2px 2px 5px 0px rgba(26, 26, 26, 1);
+  z-index:1;
+  box-shadow: var(--animethumbsboxshadow);
   background-color:var(--color8);
   transition: 0.2s;
+  align-self: start;
+}
+/* .animethumblink{
+  text-decoration: none;
+  color: var(--color5);
+} */
+.imagetext{
+  font-family: 'Trade Winds';
+    background-color:var(--color8);
+    text-align: center;
+    padding: 10px;
+    font-size: 15px;
+    color: var(--color5);
 }
 .animethumbs:hover{
-  transform: scale(0.97);
+    transform: scale(1.05);
 }
-.animethumbs img{
-  max-height: 315px;
+.buttonplace{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  align-items: center;
 }
-.imagetext {
-  text-align: center;
-  font-family: 'Trade Winds';
-  background-color:var(--color8);
-  padding: 10px;
-  font-size: 15px;
-  color: var(--color5);
+.leftbutton{
+      border-radius:50%;
+      height:75px;
+      width:75px;
+      border: none;
+      box-shadow: var(--leftbuttonboxshadow);
+      background-color: var(--color8);
+      transition: transform .2s;
+
 }
-.fas.fa-plus-square.fa-3x{
-  background-color: white;
-  color: black; 
-  padding: 0px; 
-  line-height: 80%; 
-  opacity: 0.5;
-} 
-#addtoprofile{
-  position: absolute;
-  right: 0;
-  top:0;
-  padding: 0%;
-  background-color: transparent;
+.leftbutton:hover{
+    transform: scale(1.1);
+}
+.rightbutton{
+  border-radius:50%;
+  height:75px;
+  width:75px;
   border: none;
+  box-shadow: var(--leftbuttonboxshadow);
+  background-color: var(--color8);
+  transition: transform .2s;
+  float: right;
 }
-.animethumbs:hover fas.fa-plus-square.fa-3x{
-  line-height: 60%;
+.rightbutton:hover{
+transform: scale(1.1);
+}
+
+.fa-angle-left{
+    color: var(--color4);
+}
+.fa-angle-right{
+  color: var(--color4);
+}
+.leftbutton:focus, .rightbutton:focus{
+  outline:none;
 }
 #foot{
   box-shadow: var(--footboxshadow);
@@ -326,18 +332,4 @@ border-style: solid;
   background-color:var(--color8);
   color: var(--color5);
 }
-/* for search */
-/* label{
-  color: aliceblue;
-}
-.typearea , .statusarea , .genrearea{
-  display: grid;
-  grid-template-columns: 1fr 15fr;
-  margin: 5px;
-}
-.genrefilter{
-  display: grid;
-  grid-template-columns: repeat(8, 1fr);
-} */
-
 
