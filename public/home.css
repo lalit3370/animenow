@@ -304,7 +304,14 @@ border-style: solid;
   line-height: 80%; 
   opacity: 0.5;
 } 
-#addtoprofile{
+.fas.fa-check-square.fa-3x{
+  background-color: white;
+  color: #23BB2D; 
+  padding: 0px; 
+  line-height: 80%; 
+  /* opacity: 0.5; */
+} 
+.addtoprofile{
   position: absolute;
   right: 0;
   top:0;

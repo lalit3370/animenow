@@ -10,7 +10,7 @@ var db = require('./config/keys').MongoURI;
 var mongo = require('mongodb');
 var mongoose = require('mongoose');
 mongoose.set('useCreateIndex', true);
-mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false })
     .then(()=>console.log("MongoDB Connected..."))
     .catch(err=>console.log(err));
 

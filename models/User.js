@@ -12,6 +12,9 @@ const userSchema=new mongoose.Schema({
     date:   {
         type: Date,
         default: Date.now
+    },
+    anime_mal_id: {
+        type: [Number]
     }
 });
 

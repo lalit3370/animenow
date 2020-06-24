@@ -31,7 +31,7 @@ router.post('/signup', (req, res) => {
   }
 
   if (password.length < 6) {
-    errors.push({ msg: 'Password must be at least 6 characters' });
+    errors.push({ msg: 'Password must be <br>at least 6 characters' });
   }
   if (errors.length > 0) {
     res.render('signup', { errors });
@@ -58,7 +58,7 @@ router.post('/signup', (req, res) => {
               newUser.save()
                 .then(
                   user => {
-                    req.flash('success_msg', "you're now registered and can log in");
+                    req.flash('success_msg', "You've successfully<br> registered");
                     res.redirect('/login');
                   }
                 ).catch(err => console.log(err));

@@ -2,8 +2,14 @@
 <html lang="en">
 
 <head>
-
-    <!-- <script src="homestyle.js"></script> -->
+    <script type="text/javascript">
+        <% if(typeof user !='undefined'){%>
+            var animelist= <%= JSON.stringify(user.anime_mal_id)%>
+            // console.log(animelist);
+        <%} else{%>
+            console.log("user not logged in");
+       <% } %>
+    </script>
     <link href="https://fonts.googleapis.com/css?family=Oxygen|Trade+Winds&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/8bdcc132e6.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="bootstrap.min.css">
