@@ -1,0 +1,124 @@
+img {
+    width: 100%;
+    height: auto;
+}
+/* .swiper-container {
+    max-width: 50%;
+    max-height: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+    /* max-height: 100vh;
+    overflow: hidden; */
+} */
+/* .memearea{
+    max-width: 1800px;
+} */
+.memediv {
+    height: 50%;
+    width: 50%;
+    padding: 30px;
+    background-color: #333333;
+    -webkit-box-shadow: 2px 2px 3px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 2px 2px 3px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 2px 2px 3px 0px rgba(0, 0, 0, 0.75);
+}
+
+.memediv span {
+    color: white;
+    text-transform: capitalize;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.memeuploader {
+    float: right;
+}
+.modal{
+    display: none;
+    z-index: 6;
+    margin: auto;
+    position: fixed ;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    /* overflow: auto; */
+    background-color: rgba(0, 0, 0, 0.5);
+    /* background-color: transparent; */
+}
+.modal-content{
+    background-color: #191919;
+    margin: 5% auto;
+    width: 25%;
+    height:75%;
+    border: 1px solid #9E9E9E/*rgb(153, 153, 153)*/;
+    border-radius:10px;
+    padding: 20px;
+}
+#title{
+    padding:5px;
+    padding-left:10px;
+    /* font: 45px; */
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    border-radius: 50px;
+    margin-top:2.5%;
+    margin-left:12.5% ;
+    width: 75%;
+    height: 30px;
+    border: 2px #9E9E9E solid;
+    background-color: #272727;
+    color: white;
+    text-transform: capitalize;
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+}
+#meme-img{
+    display: none;
+}
+
+.drop-area{
+    background-color: #272727;
+    text-align: center;
+    /* padding: 20px; */
+    margin-left:5%;
+    width: 90%;
+    padding-top: 150px;
+    padding-bottom: 150px;
+    color: white;
+    border:4px dashed #9E9E9E;
+    border-radius: 10px;
+}
+.drop-area.highlight{
+    border:4px dashed white;
+}
+.uploadlabel:hover{
+    cursor: pointer;
+}
+.upload-btn{
+    display: inline-block;
+    background-color: #375A7F;
+    text-transform: capitalize;
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    color: white;   
+    width: 90%;
+    margin-left:6%;
+    /* border:2px solid white; */
+    border: none;
+    padding-top:20px ;
+    padding-bottom:20px ;
+}
+.upload-btn:hover{
+    background: #28415B;
+    cursor: pointer;
+}
+.uploadlabel{
+    text-transform: capitalize;
+    font-family: 'Roboto', sans-serif;
+    font-size: 25px;
+    font-weight: bold;
+}

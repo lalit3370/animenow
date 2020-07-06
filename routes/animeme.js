@@ -4,11 +4,13 @@ var multer = require('multer');
 const path = require('path');
 var { ensureAuthenticated } = require('../config/checkauth');
 var Animeme = require('../models/Animeme');
-
+// destination: './public/uploads/',
 var storage = multer.diskStorage({
   destination: './public/uploads/',
   filename: function (req, file, cb) {
-    cb(null, req.body.title + '--' + req.user.username + path.extname(file.originalname));
+    // cb(null, req.body.title + '--' + req.user.username + path.extname(file.originalname));
+    cb(null,req.user.username+"-"+file.originalname);
+    
   }
 });
 var upload = multer({
@@ -31,22 +33,27 @@ function checkFileType(file, cb) {
   }
 }
 router.get('/animemes', (req, res) => {
-  res.render('animemes', { user: req.user });
+  Animeme.find({},(err,result)=>{
+    // console.log(result);
+    res.render('animemes', { user: req.user, memelist: result });
+  })
 });
 
-router.post('/animemes/upload', upload.single('mymeme'), function (req, res) {
+router.post('/animemes/upload',ensureAuthenticated, upload.single('mymeme'), function (req, res) {
+  console.log(req.file);
   const newAnimeme = new Animeme({
     uploader: req.user.username,
     title: req.body.title,
-    path: req.file.path
+    // path: "/uploads/"+req.body.title+"--"+req.user.username+path.extname(req.file.originalname)
+    path: "/uploads/"+req.user.username+"-"+req.file.originalname
   });
   newAnimeme.save().catch(err => console.log(err));
-  req.flash('success_msg', "File uploaded");
+  // req.flash('success_msg', "File uploaded");
   res.redirect('/animemes');
 });
-router.get('/animemes/upload', ensureAuthenticated, (req, res) => {
-  res.render('upload', { user: req.user });
-});
+// router.get('/animemes/upload', ensureAuthenticated, (req, res) => {
+//   res.render('upload', { user: req.user });
+// });
 router.get((req, res, next) => {
   res.status(404).render('404', { pageTitle: 'Page not found' });
 });

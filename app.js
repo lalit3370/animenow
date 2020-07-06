@@ -51,7 +51,7 @@ app.use(authRoutes);
 app.use(homeRoutes);
 app.use(animemeRoutes);
 
-var port=3000;
+var port=3001;
 app.listen(port,()=>{
     console.log("Server started on Port "+port);
 });

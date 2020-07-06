@@ -58,12 +58,12 @@ router.post('/signup', (req, res) => {
               newUser.save()
                 .then(
                   user => {
-                    req.flash('success_msg', "You've successfully<br> registered");
+                    req.flash('success_msg', "You've successfully registered");
                     res.redirect('/login');
                   }
                 ).catch(err => console.log(err));
-            })
-          })
+            });
+          });
         }
       });
   }

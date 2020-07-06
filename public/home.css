@@ -251,12 +251,11 @@ border-style: solid;
 }
 
 .buttonplace{
-
   max-width: 1800px;
 }
 .swiper-container {
   width: 100%;
-  height: 100%;
+  max-height: inherit;
   overflow: visible;
 }
 
@@ -272,7 +271,7 @@ border-style: solid;
   -webkit-box-align: center;
   -ms-flex-align: center;
   -webkit-align-items: center;
-  /* align-items: center; */
+  align-items: center;
 }
 
 .animethumbs {
@@ -301,15 +300,16 @@ border-style: solid;
   background-color: white;
   color: black; 
   padding: 0px; 
-  line-height: 80%; 
+  line-height: 85%; 
   opacity: 0.5;
 } 
 .fas.fa-check-square.fa-3x{
   background-color: white;
   color: #23BB2D; 
   padding: 0px; 
-  line-height: 80%; 
-  /* opacity: 0.5; */
+  line-height: 83%; 
+  /* width: 100%; */
+  opacity: 0.9;
 } 
 .addtoprofile{
   position: absolute;
@@ -333,18 +333,3 @@ border-style: solid;
   background-color:var(--color8);
   color: var(--color5);
 }
-/* for search */
-/* label{
-  color: aliceblue;
-}
-.typearea , .statusarea , .genrearea{
-  display: grid;
-  grid-template-columns: 1fr 15fr;
-  margin: 5px;
-}
-.genrefilter{
-  display: grid;
-  grid-template-columns: repeat(8, 1fr);
-} */
-
-

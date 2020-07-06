@@ -3,10 +3,10 @@
 
 <head>
     <script type="text/javascript">
-        <% if(typeof user !='undefined'){%>
-            var animelist= <%= JSON.stringify(user.anime_mal_id)%>
+        <% if (typeof user != 'undefined') {%>
+            var animelist = <%= JSON.stringify(user.anime_mal_id) %>
             // console.log(animelist);
-        <%} else{%>
+        <%} else {%>
             console.log("user not logged in");
        <% } %>
     </script>
@@ -92,7 +92,7 @@
             <% if(typeof user !='undefined'){%>
 
             <div class="acctarea">
-                <a href="/home" id="acctname">Welcome, <%=user.username%></a>
+                <a href="/" id="acctname">Welcome, <%=user.username%></a>
                 <div id="acctdropcontent">
                     <a href="/profile" class="acctlinks">Profile</a>
                     <a href="/setting" class="acctlinks">Settings</a>
@@ -130,7 +130,7 @@
                 <div class="rowheadingarea">
                     <div class="rowheading">Trending</div>
                 </div>
-                <div class="buttonplace">
+                <div class="buttonplace"><br><br>
                     <div class="swiper-container trend">
                         <div class="swiper-wrapper" id="trendanime">
 
@@ -148,7 +148,7 @@
                 <div class="rowheadingarea">
                     <div class="rowheading">Top Charts</div>
                 </div>
-                <div class="buttonplace">
+                <div class="buttonplace"><br><br>
                     <div class="swiper-container top">
                         <div class="swiper-wrapper" id="topanime">
 
@@ -176,9 +176,6 @@
         </div>
 
     </div>
-
-    <!-- <script src="bootstrap.min.js"></script> -->
-
     <script src="home.js"></script>
     <script src="swiper.min.js"></script>
 </body>
