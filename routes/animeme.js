@@ -4,11 +4,9 @@ var multer = require('multer');
 const path = require('path');
 var { ensureAuthenticated } = require('../config/checkauth');
 var Animeme = require('../models/Animeme');
-// destination: './public/uploads/',
 var storage = multer.diskStorage({
   destination: './public/uploads/',
   filename: function (req, file, cb) {
-    // cb(null, req.body.title + '--' + req.user.username + path.extname(file.originalname));
     cb(null,req.user.username+"-"+file.originalname);
     
   }
@@ -34,7 +32,6 @@ function checkFileType(file, cb) {
 }
 router.get('/animemes', (req, res) => {
   Animeme.find({},(err,result)=>{
-    // console.log(result);
     res.render('animemes', { user: req.user, memelist: result });
   })
 });
@@ -51,9 +48,6 @@ router.post('/animemes/upload',ensureAuthenticated, upload.single('mymeme'), fun
   // req.flash('success_msg', "File uploaded");
   res.redirect('/animemes');
 });
-// router.get('/animemes/upload', ensureAuthenticated, (req, res) => {
-//   res.render('upload', { user: req.user });
-// });
 router.get((req, res, next) => {
   res.status(404).render('404', { pageTitle: 'Page not found' });
 });

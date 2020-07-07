@@ -10,9 +10,9 @@
         integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link rel="stylesheet" href="bootstrap.min.css">
     <link rel="stylesheet" href="home.css">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
     <link rel="stylesheet" href="swiper.min.css">
     <link rel="stylesheet" href="animemes.css">
@@ -22,17 +22,22 @@
 <body>
     <div class="modal">
         <div class="modal-content">
-            <form action="/animemes/upload" method="post" enctype="multipart/form-data">
-                <input type="text" name="title" id="title" placeholder="Title" required><br><br><br>
-                <br><br>
+            <form action="/animemes/upload" method="post" enctype="multipart/form-data" id="memeform">
+                <input type="text" name="title" id="title" placeholder="  Title" required><br><br><br>
+                
                 <div class="drop-area" id="drop-area">
-                    <input type="file" name="mymeme" id="meme-img">
-                    <label class="uploadlabel" for="meme-img">Drag and drop your image file here <br> or click here to
-                        upload</label>
-
+                    <div id="default-drop-area">
+                        <input type="file" name="mymeme" id="meme-img">
+                        <label class="uploadlabel" for="meme-img">Click here to
+                            upload</label>
+                    </div>
+                    <img src="#" alt="Error loading image" style="display: none;" id="imgprev">
                 </div>
-                <br><br><br><br>
-                <button type="submit" class="upload-btn">Upload</button>
+                <br><br>
+                <button type="reset" class="dropareabtn reset" onclick="resetform()">Reset</button>
+                <br><br>
+                <button type="submit" class="dropareabtn submit">Upload</button>
+
             </form>
         </div>
     </div>
@@ -90,7 +95,6 @@
                 </div>
                 <a href="#browse">Browse</a>
                 <a href="/animemes" class="active">Animemes</a>
-                <!-- <a href="/animemes/upload">Upload</a> -->
                 <a href="#upload" id="updbtn">Upload</a>
             </div>
 
@@ -119,38 +123,14 @@
         </nav>
         <div id="mid">
             <div class="row">
-                <div class="meme-area">
-                    <!-- ///////////////////////////////// -->
-                    
-                        <div class="memediv">
-                            <div><span class="memetitle">upload1</span><span class="memeuploader">Uploader: lalit</span>
-                            </div>
-                            <div><br><br><img src="/uploads/upload1--lalit.png" alt="Image error"></div>
-                        </div>
-                    
-                    
-                        <div class="memediv">
-                            <div><span class="memetitle">upload2</span><span class="memeuploader">Uploader: lalit</span>
-                            </div>
-                            <div><br><br><img src="/uploads/upload2--lalit.png" alt="Image error"></div>
-                        </div>
-                    
-                   
-                        <div class="memediv">
-                            <div><span class="memetitle">hello my name is</span><span class="memeuploader">Uploader:
-                                    lalit</span></div>
-                            <div><br><br><img src="/uploads/lalit-FB_IMG_1567047448424.jpg" alt="Image error"></div>
-                        </div>
-                    
+                <div class="swiper-container meme">
+                    <div class="swiper-wrapper" id="memearea">
+
+                    </div>
+                    <div class="swiper-pagination"></div>
                 </div>
-                <!-- <div class="swiper-container meme">
-                        <div class="swiper-wrapper" id="memearea">
-                        </div>
-                        <div class="swiper-pagination"></div>
-                    </div> -->
             </div>
         </div>
-
     </div>
     <div id="foot">
         <div>
@@ -163,9 +143,26 @@
     </div>
     <script src="bootstrap.min.js"></script>
     <script>
-        var memelist = <% - JSON.stringify(memelist) %>
+        var memelist = <%- JSON.stringify(memelist) %>
+        console.log(memelist);
     </script>
     <script src="swiper.min.js"></script>
     <script src="animemepage.js"></script>
+    <script>
+    var swiper = new Swiper('.swiper-container.meme', {
+        direction: 'vertical',
+        slidesPerView: 1,
+        spaceBetween: 500,
+        mousewheel: true,
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+            },
+        });
+        setTimeout(() => {
+	    swiper.update()
+        }, 100)
+    </script>
 </body>
+
 </html>
