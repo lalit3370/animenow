@@ -19,6 +19,7 @@ require('./config/passport')(passport);
 var homeRoutes = require('./routes/home');
 var authRoutes = require('./routes/auth');
 var animemeRoutes = require('./routes/animeme');
+var profileRoutes = require('./routes/profile');
 
 var app = express(); 
 app.set('view engine', 'ejs');
@@ -50,8 +51,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(authRoutes);
 app.use(homeRoutes);
 app.use(animemeRoutes);
+app.use(profileRoutes);
 
-var port=3001;
+var port=3000;
 app.listen(port,()=>{
     console.log("Server started on Port "+port);
 });

@@ -13,7 +13,7 @@ var storage = multer.diskStorage({
 });
 var upload = multer({
   storage: storage,
-  limits: { fileSize: 5242880 }, //5MB in binary
+  limits: { fileSize: 10485760 }, //10MB in binary
   fileFilter: function (req, file, cb) {
     checkFileType(file, cb);
   }
@@ -41,11 +41,9 @@ router.post('/animemes/upload',ensureAuthenticated, upload.single('mymeme'), fun
   const newAnimeme = new Animeme({
     uploader: req.user.username,
     title: req.body.title,
-    // path: "/uploads/"+req.body.title+"--"+req.user.username+path.extname(req.file.originalname)
     path: "/uploads/"+req.user.username+"-"+req.file.originalname
   });
   newAnimeme.save().catch(err => console.log(err));
-  // req.flash('success_msg', "File uploaded");
   res.redirect('/animemes');
 });
 router.get((req, res, next) => {

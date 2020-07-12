@@ -1,21 +1,16 @@
-img {
-    width: 100%;
-    height: auto;
-}
  .swiper-container {
     max-width: 50%;
-    max-height: 750px;
+    max-height: 1000px;
+    /* max-height: inherit; */
     margin-left: auto;
     margin-right: auto;
-    /* max-height: 100vh;
-    overflow: hidden; */
+
 } 
 .memearea{
     max-width: 1800px;
 } 
 .memediv {
-    /* height: 50%; */
-    /* width: 50%; */
+    width: 600px;
     padding: 30px;
     background-color: #333333;
     -webkit-box-shadow: 2px 2px 3px 0px rgba(0, 0, 0, 0.75);
@@ -30,7 +25,10 @@ img {
     font-size: 20px;
     font-weight: bold;
 }
-
+.memediv img{   
+    width: 100%;
+    height: 100%;
+}
 .memeuploader {
     float: right;
 }
@@ -43,15 +41,12 @@ img {
     left: 0;
     height: 100%;
     width: 100%;
-    /* overflow: auto; */
     background-color: rgba(0, 0, 0, 0.5);
-    /* background-color: transparent; */
 }
 .modal-content{
     display: flex;
     justify-content: center;
     align-items: center;
-    /* background-color: #191919; */
     background: #313132;
     margin: 7% auto;
     width: 400px;
@@ -83,7 +78,6 @@ img {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* background-color: #272727; */
     background: #444444;
     width: 350px;
     height: 300px;
@@ -93,11 +87,8 @@ img {
     border-radius: 10px;
 }
 .drop-area img{
-    height: 100%;
-    width: auto;
-    max-height: inherit;
-    max-width: inherit;
-    position: relative;
+    max-height: 100%;
+    max-width: 100%;
 }
 .drop-area:hover{
     border:4px dashed white;
@@ -106,8 +97,6 @@ img {
     cursor: pointer;
 }
 .dropareabtn{
-    display: inline-block;
-    
     text-transform: capitalize;
     font-family: 'Roboto', sans-serif;
     font-size: 15px;
@@ -118,6 +107,12 @@ img {
     padding-top:20px ;
     padding-bottom:20px ;
     background: #444444;
+}
+.dropareabtn:focus{
+
+    outline-width: 2px;
+    outline-style: solid;
+    outline-color: white;
 }
 .dropareabtn.reset:hover{
     background-color: rgb(177, 81, 81);    

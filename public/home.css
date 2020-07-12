@@ -26,7 +26,6 @@ body{
 }
 
 .wrapper{
-  /* max-width: 1800px; */
   display: grid;
   grid-template-columns: 1fr;
   padding:0em;
@@ -174,17 +173,7 @@ border-style: solid;
   display:block;
   padding-right: 10px;
 }
-/* #acctbtnicon{
-  float: left; 
-  color: var(--color5);
-  padding: 11px 15px 11px 0px;
-}
-.acctarea:hover i{
-  background-color: transparent;
-  color: var(--color4);
-} */
 #acctdropcontent{
-  /* float: right; */
   margin-top:55px;
   display: none;
   position: absolute;
@@ -218,6 +207,7 @@ border-style: solid;
   grid-template-columns:100%;
   grid-gap:0.5em;
   grid-auto-rows:minmax(350px,auto);
+  /* grid-auto-rows:minmax(500px,auto); */
   height: 100%;
 }
 #mid>div{

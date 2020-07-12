@@ -1,0 +1,14 @@
+#mid{
+    display:grid;
+    grid-template-columns: 1fr 5fr;
+}
+#dp{
+    background-color: white; 
+    height: 250px; 
+    width:250px; 
+    display:block;
+}
+.profile{
+    display: flex;
+    justify-content: center;
+}

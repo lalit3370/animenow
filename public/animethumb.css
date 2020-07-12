@@ -1,0 +1,27 @@
+.animethumbarea{
+    display: grid;
+    grid-template-columns: repeat(6,225px);
+    grid-column-gap: 3em;
+    justify-content:center;
+    padding:1em;
+    grid-row-gap: 3em;
+}
+.animethumbs{
+  position: relative;
+  z-index:1;
+  box-shadow: var(--animethumbsboxshadow);
+  background-color:var(--color8);
+  transition: 0.2s;
+  align-self: start;
+}
+.imagetext{
+  font-family: 'Trade Winds';
+    background-color:var(--color8);
+    text-align: center;
+    padding: 10px;
+    font-size: 15px;
+    color: var(--color5);
+}
+.animethumbs:hover{
+    transform: scale(1.05);
+}
