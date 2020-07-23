@@ -54,6 +54,9 @@ app.use(animemeRoutes);
 app.use(profileRoutes);
 
 var port=3000;
-app.listen(port,()=>{
-    console.log("Server started on Port "+port);
+// app.listen(port,()=>{
+//     console.log("Server started on Port "+port);
+// });
+app.listen(process.env.PORT || 3000,() => {
+    console.log(`App Started on PORT ${process.env.PORT || 3000}`);
 });
