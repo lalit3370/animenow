@@ -7,7 +7,8 @@ function getnew() {
     let year = todaydate.getFullYear();
     let month = todaydate.getMonth() + 1;
     season = ['winter', 'winter', 'winter', 'spring', 'spring', 'spring', 'summer', 'summer', 'summer', 'fall', 'fall', 'fall'];
-    let requestURL = 'https://api.jikan.moe/v3/season/' + year + '/' + season[month];
+    // let requestURL = 'https://api.jikan.moe/v3/season/' + year + '/' + season[month];
+    let requestURL = 'jsonfiles/new.json';
     fetch(requestURL)
         .then((response) => {
             return response.json();
@@ -37,7 +38,8 @@ function getnew() {
         });
 }
 function gettrend() {
-    let requestURL = 'https://api.jikan.moe/v3/top/anime/1/airing';
+    // let requestURL = 'https://api.jikan.moe/v3/top/anime/1/airing';
+    let requestURL = 'jsonfiles/trend.json';
     fetch(requestURL)
         .then((response) => {
             return response.json();
@@ -69,7 +71,8 @@ function gettrend() {
 }
 
 function gettop() {
-    let requestURL = 'https://api.jikan.moe/v3/search/anime?order_by=score';
+    // let requestURL = 'https://api.jikan.moe/v3/search/anime?order_by=score';
+    let requestURL = 'jsonfiles/top.json';
     fetch(requestURL)
         .then((response) => {
             return response.json();
