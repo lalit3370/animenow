@@ -188,10 +188,9 @@ border-style: solid;
   opacity: 0.95;
   background-color: var(--color2);
 }
-/* .acctarea:hover #acctdropcontent{
+.acctarea:hover #acctdropcontent{
   display: grid;
-  
-} */
+}
 .acctlinks{
   padding: 10px;
   float: none;

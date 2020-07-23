@@ -8,6 +8,7 @@ function getnew() {
     let month = todaydate.getMonth() + 1;
     season = ['winter', 'winter', 'winter', 'spring', 'spring', 'spring', 'summer', 'summer', 'summer', 'fall', 'fall', 'fall'];
     let requestURL = 'https://api.jikan.moe/v3/season/' + year + '/' + season[month];
+    // let requestURL='/jsonfiles/new.json'
     fetch(requestURL)
         .then((response) => {
             return response.json();
@@ -70,6 +71,7 @@ function gettrend() {
 
 function gettop() {
     let requestURL = 'https://api.jikan.moe/v3/search/anime?order_by=score';
+    // let requestURL='/jsonfiles/top.json'
     fetch(requestURL)
         .then((response) => {
             return response.json();
