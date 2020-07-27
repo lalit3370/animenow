@@ -159,58 +159,8 @@
         </div>
 
     </div>
-    <script src="home.js"></script>
     <script src="swiper.min.js"></script>
-    <script>
-        var swiper1 = new Swiper('.swiper-container.new', {
-            slidesPerView: 6,
-            spaceBetween: -50,
-            slidesPerGroup: 6,
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-                dynamicBullets: true,
-            },
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
-        });
-        var swiper2 = new Swiper('.swiper-container.trend', {
-            slidesPerView: 6,
-            spaceBetween: -50,
-            slidesPerGroup: 6,
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-                dynamicBullets: true,
-            },
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
-        });
-
-        var swiper3 = new Swiper('.swiper-container.top', {
-            slidesPerView: 6,
-            spaceBetween: -50,
-            slidesPerGroup: 6,
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-                dynamicBullets: true,
-            },
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
-        });
-        setTimeout(() => {
-            swiper1.update()
-            swiper2.update()
-            swiper3.update()
-        }, 250);
-    </script>
+    <script src="home.js"></script>
 </body>
 
 </html>
