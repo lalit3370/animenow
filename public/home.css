@@ -109,14 +109,17 @@ nav a:hover{
 
 .genreid{
   background-color: transparent;
-  float: left;
+  /* float: left; */
   color: var(--color5);
   text-decoration: none;
   text-align: left;
-  padding:3 px;
+  padding: 3px;
   border: none;
+  font: 400 13.3333px Arial;
 }
-
+ul{
+  list-style-type:none;
+}
 
 .genreid:hover {
   color: var(--color4);

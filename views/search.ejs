@@ -17,19 +17,7 @@
     <link rel="manifest" href="/site.webmanifest">
     <title>AnimeNow</title>
     <script>
-        var query = "<%=searchkey%>";
-        console.log(query);
-        fetch('https://api.jikan.moe/v3/search/anime?q=' + query + '&page=1')
-            .then((response) => {
-                return response.json();
-            })
-            .then((data) => {
-                console.log(data);
-                for (var i = 0; i < 100; i++) {
-                    const element = data.results[i];
-                    document.getElementById("newanime").insertAdjacentHTML('beforeend', '<div class="animethumbs"><div class="animage"><img src=' + element.image_url + ' alt="Error Displaying the image" class="animage"></div><div class="imagetext"><p>' + element.title + '</p></div>');
-                }
-            });
+        var searchquery = "<%=searchkey%>";
     </script>
 </head>
 
@@ -340,6 +328,7 @@
                 Contact Us
             </div>
         </div>
+    <script src="search.js"></script>
 </body>
 
 </html>

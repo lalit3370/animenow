@@ -7,8 +7,11 @@ router.get('/list', (req, res) => {
     res.render('list', { user: req.user });
 
 });
-router.post('/genre', (req, res) => {
-    res.render('genre', { genid: req.body.genrebtn, user: req.user });
+// router.post('/genre', (req, res) => {
+//     res.render('genre', { genid: req.body.genrebtn, user: req.user });
+// });
+router.get('/genre/:genid',(req,res)=>{
+    res.render('genre', { genid: req.params.genid, user: req.user });
 });
 router.post('/search', (req, res) => {
     res.render('search', { searchkey: req.body.searchkey, user: req.user });
