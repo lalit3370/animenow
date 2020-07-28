@@ -17,19 +17,7 @@
     <link rel="manifest" href="/site.webmanifest">
     <title>AnimeNow</title>
     <script>
-        var query = "<%=searchkey%>";
-        console.log(query);
-        fetch('https://api.jikan.moe/v3/search/anime?q=' + query + '&page=1')
-            .then((response) => {
-                return response.json();
-            })
-            .then((data) => {
-                console.log(data);
-                for (var i = 0; i < 100; i++) {
-                    const element = data.results[i];
-                    document.getElementById("newanime").insertAdjacentHTML('beforeend', '<div class="animethumbs"><div class="animage"><img src=' + element.image_url + ' alt="Error Displaying the image" class="animage"></div><div class="imagetext"><p>' + element.title + '</p></div>');
-                }
-            });
+        var searchquery = "<%=searchkey%>";
     </script>
 </head>
 
@@ -46,43 +34,26 @@
                     <a class="genredropbtn">Genre</a>
                     <div class="genredropdown-content">
                         <div>
-                            <form action="/genre" method="POST">
-                                <div><button type="submit" class="genreid" value="1" name="genrebtn">Action</button>
-                                </div>
-                                <div><button type="submit" class="genreid" value="2" name="genrebtn">Adventure</div>
-                                <div><button type="submit" class="genreid" value="4" name="genrebtn">Comedy</button>
-                                </div>
-                                <div><button type="submit" class="genreid" value="8" name="genrebtn">Drama</button>
-                                </div>
-                                <div><button type="submit" class="genreid" value="36" name="genrebtn">Slice of
-                                        Life</button></div>
-                            </form>
+                            <div><a href="/genre/action" class="genreid">Action</a></div>
+                            <div><a href="/genre/adventure" class="genreid">Adventure</a></div>
+                            <div><a href="/genre/comedy" class="genreid">Comedy</a></div>
+                            <div><a href="/genre/Drama" class="genreid">Drama</a></div>
+                            <div><a href="/genre/slice of life" class="genreid">Slice of life</a></div>
+                        </div>
+                        <div>
+                            <div><a href="/genre/fantasy" class="genreid">Fantasy</a></div>
+                            <div><a href="/genre/Magic" class="genreid">Magic</a></div>
+                            <div><a href="/genre/mystery" class="genreid">Mystery</a></div>
+                            <div><a href="/genre/supernatural" class="genreid">Supernatural</a></div>
+                            <div><a href="/genre/horror" class="genreid">Horror</a></div>                            
                         </div>
 
                         <div>
-                            <form action="/genre" method="POST">
-                                <div><button type="submit" class="genreid" value="10" name="genrebtn">Fantasy</button>
-                                </div>
-                                <div><button type="submit" class="genreid" value="16" name="genrebtn">Magic</button>
-                                </div>
-                                <div><button type="submit" class="genreid" value="37"
-                                        name="genrebtn">Supernatural</button></div>
-                                <div><button type="submit" class="genreid" value="14" name="genrebtn">Horror</button>
-                                </div>
-                                <div><button type="submit" class="genreid" value="7" name="genrebtn">Mystery</button>
-                                </div>
-                            </form>
-                        </div>
-
-                        <div>
-                            <form action="/genre" method="POST">
-                                <div><button type="submit" class="genreid" value="40"
-                                        name="genrebtn">Psychological</button></div>
-                                <div><button type="submit" class="genreid" value="22" name="genrebtn">Romance</button>
-                                </div>
-                                <div><button type="submit" class="genreid" value="24" name="genrebtn">Sci-Fi</button>
-                                </div>
-                            </form>
+                            <div><a href="/genre/psychological" class="genreid">Psychological</a></div>
+                            <div><a href="/genre/sci-fi" class="genreid">Sci-Fi</a></div>
+                            <div><a href="/genre/romance" class="genreid">Romance</a></div>
+                            <div><a href="/genre/thriller" class="genreid">Thriller</a></div>
+                            <div><a href="/genre/mecha" class="genreid">Mecha</a></div>
                         </div>
                     </div>
                 </div>
@@ -340,6 +311,7 @@
                 Contact Us
             </div>
         </div>
+    <script src="search.js"></script>
 </body>
 
 </html>

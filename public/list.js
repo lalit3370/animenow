@@ -1,113 +1,81 @@
-var pageno=4;
-let data;
+getlist(1);
+getlist(2);
+getlist(3);
+var x=3;
 window.addEventListener('scroll',function(){
     const totalscroll=document.documentElement.scrollHeight-window.innerHeight;
     var scrolled=window.scrollY;
     scrolled=Math.ceil(scrolled);
     scrolled+=20;
-    // console.log('total scroll: '+totalscroll);
-    // console.log('scrolled '+scrolled);
     if(totalscroll<=scrolled){
-        // console.log("reached end");
-        // console.log(pageno);
-        pageno++;
-        fetch('https://api.jikan.moe/v3/search/anime?order_by=title&page='+pageno+'')
-  .then((response) => {
-
-    return response.json();
-  })
-  .then((data) => {
-    var sec;
-    var gotoid;
-    console.log(data);
-    for (var i = 0; i < 50; i++) {   
-      const element = data.results[i];
-      var firstchar=element.title[0];
-      if(firstchar<'A'){
-        sec="specialchar";
-        gotoid="#";
-      } else{
-        sec=element.title[0];
-        gotoid=element.title[0];
-      }
-      document.getElementById(sec).style.display="grid";
-      document.getElementById("goto"+gotoid).style.display="block";
-      document.getElementById(sec).insertAdjacentHTML('beforeend','<div><a href='+element.url+' class="anilink">' + element.title + '</a></div>');
-  }
-});
+      x++;
+      getlist(x);
     }
 });
 
-fetch('https://api.jikan.moe/v3/search/anime?order_by=title&page=1')
-  .then((response) => {
-    return response.json();
-  })
-  .then((data) => {
-    var sec;
-    console.log(data);
-    var gotoid;
-    for (var i = 0; i < 50; i++) {   
-        const element = data.results[i];
-        var firstchar=element.title[0];
-        if(firstchar<'A'){
-          sec="specialchar";
-          gotoid="#";
-        } else{
-          sec=element.title[0];
-          gotoid=element.title[0];
+function getlist(pageno) {
+  var query = `
+query ($page: Int, $perPage: Int, $sort: [MediaSort], $isAdult: Boolean) {
+    Page (page: $page, perPage: $perPage) {
+    media (sort: $sort, type: ANIME, isAdult: $isAdult) {
+      title {
+        romaji
+     }
+     siteUrl
+    }
+    }
+}
+`;
+
+  var variables = {
+    sort: "TITLE_ROMAJI",
+    perPage: 50,
+    isAdult: false,
+    page: pageno
+  };
+
+  var url = 'https://graphql.anilist.co',
+    options = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+      },
+      body: JSON.stringify({
+        query: query,
+        variables: variables
+      })
+    };
+
+  fetch(url, options)
+    .then(handleResponse)
+    .then((data) => {
+      // var sec, gotoid;
+      for (var i = 0; i < 50; i++) {
+        const element = data.data.Page.media[i];
+        var firstchar = element.title.romaji[0];
+        if (!firstchar.match(/[a-zA-Z]/)) {
+          sec = "specialchar";
+          gotoid = "#";
+        } else {
+          sec = firstchar;
+          gotoid = firstchar;
         }
-        document.getElementById(sec).style.display="grid";
-        document.getElementById("goto"+gotoid).style.display="block";
-        document.getElementById(sec).insertAdjacentHTML('beforeend','<div><a href='+element.url+' class="anilink">' + element.title + '</a></div>');
-    }
-});
-fetch('https://api.jikan.moe/v3/search/anime?order_by=title&page=2')
-.then((response) => {
-  return response.json();
-})
-.then((data) => {
-  console.log(data);
-  var gotoid;
-  for (var i = 0; i < 50; i++) {   
-    const element = data.results[i];
-    var firstchar=element.title[0];
-    
-    if(firstchar<'A'){
-      sec="specialchar";
-      gotoid="#";
-    } else{
-      sec=element.title[0];
-      gotoid=element.title[0];
-      // console.log(sec);
-    }
-    document.getElementById(sec).style.display="grid";
-    document.getElementById("goto"+gotoid).style.display="block";
-    document.getElementById(sec).insertAdjacentHTML('beforeend','<div><a href='+element.url+' class="anilink">' + element.title + '</a></div>');
+        console.log("gotoid: "+gotoid);
+        console.log("sec: "+sec);
+        document.getElementById(sec).style.display = "grid";
+        document.getElementById("goto" + gotoid).style.display = "block";
+        document.getElementById(sec).insertAdjacentHTML('beforeend', '<div><a href=' + element.siteUrl + ' class="anilink">' + element.title.romaji + '</a></div>');
+      }
+    }).catch(handleError);
 }
 
-});
-fetch('https://api.jikan.moe/v3/search/anime?order_by=title&page=3')
-.then((response) => {
-  return response.json();
-})
-.then((data) => {
-  console.log(data);
-  var gotoid;
-  for (var i = 0; i < 50; i++) {   
-    const element = data.results[i];
-    var firstchar=element.title[0];
-    
-    if(firstchar<'A'){
-      sec="specialchar";
-      gotoid="#";
-    } else{
-      sec=element.title[0];
-      gotoid=element.title[0];
-      // console.log(sec);
-    }
-    document.getElementById(sec).style.display="grid";
-    document.getElementById("goto"+gotoid).style.display="block";
-    document.getElementById(sec).insertAdjacentHTML('beforeend','<div><a href='+element.url+' class="anilink">' + element.title + '</a></div>');
+function handleResponse(response) {
+  return response.json().then(function (json) {
+    return response.ok ? json : Promise.reject(json);
+  });
 }
 
-});
+function handleError(error) {
+  console.error(error);
+}
