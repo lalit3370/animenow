@@ -1,6 +1,6 @@
 # AnimeNow
 
-Anime tracking website powered by ~Jikan API (Unofficial MAL API)~ Anilist GraphQL API
+Anime tracking website powered by Anilist GraphQL API
 
 View New, Top & Trending Anime, browse by filters or simply view the list.
 
