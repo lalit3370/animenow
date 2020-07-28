@@ -1,4 +1,17 @@
-var query = `
+getgenre(1);
+var x=1;
+window.addEventListener('scroll',function(){
+    const totalscroll=document.documentElement.scrollHeight-window.innerHeight;
+    var scrolled=window.scrollY;
+    scrolled=Math.ceil(scrolled);
+    scrolled+=20;
+    if(totalscroll<=scrolled){
+      x++;
+      getgenre(x);
+    }
+});
+function getgenre(pageno){
+    var query = `
 query ($page: Int, $perPage: Int, $sort: [MediaSort], $isAdult: Boolean, $genre: String) {
     Page (page: $page, perPage: $perPage) {
     pageInfo {
@@ -25,8 +38,9 @@ query ($page: Int, $perPage: Int, $sort: [MediaSort], $isAdult: Boolean, $genre:
 var variables = {
 genre: genid,
 sort: "POPULARITY_DESC",
-perPage: 24,
+perPage: 50,
 isAdult: false,
+page: pageno
 };
 
 var url = 'https://graphql.anilist.co',
@@ -53,6 +67,7 @@ fetch(url, options)
     }
     })
 .catch(handleError);
+}
 
 function handleResponse(response) {
     return response.json().then(function (json) {
