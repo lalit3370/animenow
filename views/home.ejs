@@ -25,18 +25,18 @@
     <link rel="stylesheet" href="swiper.min.css">
     <title>AnimeNow</title>
 </head>
-
 <body>
     <div class="wrapper">
-        <nav>
+        <nav id="navbar" class="navbar">
             <div id="homeicon">
                 <a href="/">AnimeNow</a>
             </div>
             <div class="topnav">
                 <a href="/" class="active">Home</a>
                 <a href="/list">List</a>
-                <div class="genredropdown">
+                <div class="genredropdown" onclick="showgenre()">
                     <a class="genredropbtn">Genre</a>
+                    <i class="fas fa-caret-down"></i>
                     <div class="genredropdown-content">
                         <div>
                             <div><a href="/genre/action" class="genreid">Action</a></div>
@@ -62,10 +62,26 @@
                         </div>
                     </div>
                 </div>
+                <div class="genre-mobile-links" id="genre-mobile-links">
+                    <div><a href="/genre/action" class="genreid">Action</a></div>
+                    <div><a href="/genre/adventure" class="genreid">Adventure</a></div>
+                    <div><a href="/genre/comedy" class="genreid">Comedy</a></div>
+                    <div><a href="/genre/Drama" class="genreid">Drama</a></div>
+                    <div><a href="/genre/slice of life" class="genreid">Slice of life</a></div>
+                    <div><a href="/genre/fantasy" class="genreid">Fantasy</a></div>
+                    <div><a href="/genre/Magic" class="genreid">Magic</a></div>
+                    <div><a href="/genre/mystery" class="genreid">Mystery</a></div>
+                    <div><a href="/genre/supernatural" class="genreid">Supernatural</a></div>
+                    <div><a href="/genre/horror" class="genreid">Horror</a></div>
+                    <div><a href="/genre/psychological" class="genreid">Psychological</a></div>
+                    <div><a href="/genre/sci-fi" class="genreid">Sci-Fi</a></div>
+                    <div><a href="/genre/romance" class="genreid">Romance</a></div>
+                    <div><a href="/genre/thriller" class="genreid">Thriller</a></div>
+                    <div><a href="/genre/mecha" class="genreid">Mecha</a></div>
+                </div>
                 <a href="#browse">Browse</a>
                 <a href="/animemes">Animemes</a>
             </div>
-
             <div class="searcharea">
                 <form action="/search" method="POST" id="searchform">
                     <input type="text" id="search" name="searchkey" placeholder="Search">
@@ -73,9 +89,9 @@
                 </form>
             </div>
             <% if(typeof user !='undefined'){%>
-
             <div class="acctarea">
-                <a href="/" id="acctname">Welcome, <%=user.username%></a>
+                <a id="acctname">Welcome, <%=user.username%></a>
+                <i class="fas fa-caret-down"></i>
                 <div id="acctdropcontent">
                     <a href="/profile" class="acctlinks">Profile</a>
                     <a href="/setting" class="acctlinks">Settings</a>
@@ -88,6 +104,9 @@
                 <a href="/signup">Signup</a>
             </div>
             <% }%>
+            <a class="ham-icon" onclick="showtopnav()">
+                <i class="fas fa-bars fa-lg"></i>
+            </a>
         </nav>
         <div id="mid">
             <div class="row">

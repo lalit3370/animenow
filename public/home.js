@@ -238,7 +238,7 @@ function handleError(error) {
 }
 var swiper1 = new Swiper('.swiper-container.new', {
   slidesPerView: 6,
-  spaceBetween: -50,
+  // spaceBetween: -50,
   slidesPerGroup: 6,
   pagination: {
       el: '.swiper-pagination',
@@ -248,11 +248,33 @@ var swiper1 = new Swiper('.swiper-container.new', {
   navigation: {
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev',
+  },
+  breakpoints: {
+    600:  {
+      slidesPerView: 1,
+      slidesPerGroup: 1,
+    },
+    936: {
+      slidesPerView: 2,
+      slidesPerGroup: 2
+    },
+    1205: {
+      slidesPerView: 3,
+      slidesPerGroup: 3
+    },
+    1520: {
+      slidesPerView: 4,
+      slidesPerGroup: 4
+    },
+    1840: {
+      slidesPerView: 5,
+      slidesPerGroup: 5
+    }
   },
 });
 var swiper2 = new Swiper('.swiper-container.trend', {
   slidesPerView: 6,
-  spaceBetween: -50,
+  // spaceBetween: -50,
   slidesPerGroup: 6,
   pagination: {
       el: '.swiper-pagination',
@@ -262,12 +284,34 @@ var swiper2 = new Swiper('.swiper-container.trend', {
   navigation: {
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev',
+  },
+  breakpoints: {
+    600:  {
+      slidesPerView: 1,
+      slidesPerGroup: 1
+    },
+    936: {
+      slidesPerView: 2,
+      slidesPerGroup: 2
+    },
+    1205: {
+      slidesPerView: 3,
+      slidesPerGroup: 3
+    },
+    1520: {
+      slidesPerView: 4,
+      slidesPerGroup: 4
+    },
+    1840: {
+      slidesPerView: 5,
+      slidesPerGroup: 5
+    }
   },
 });
 
 var swiper3 = new Swiper('.swiper-container.top', {
   slidesPerView: 6,
-  spaceBetween: -50,
+  // spaceBetween: -50,
   slidesPerGroup: 6,
   pagination: {
       el: '.swiper-pagination',
@@ -277,6 +321,28 @@ var swiper3 = new Swiper('.swiper-container.top', {
   navigation: {
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev',
+  },
+  breakpoints: {
+    600:  {
+      slidesPerView: 1,
+      slidesPerGroup: 1
+    },
+    936: {
+      slidesPerView: 2,
+      slidesPerGroup: 2
+    },
+    1205: {
+      slidesPerView: 3,
+      slidesPerGroup: 3
+    },
+    1520: {
+      slidesPerView: 4,
+      slidesPerGroup: 4
+    },
+    1840: {
+      slidesPerView: 5,
+      slidesPerGroup: 5
+    }
   },
 });
 setTimeout(() => {
@@ -285,3 +351,22 @@ setTimeout(() => {
   swiper3.update();
   console.log("now");
 }, 1500);
+
+function showtopnav(){
+  var x=document.getElementById("navbar");
+  if(x.className=="navbar"){
+    x.className+=" responsive";
+  } else{
+    x.className="navbar";
+  }
+  console.log(x.className);
+}
+function showgenre(){
+  var x=document.getElementById("genre-mobile-links");
+  if(x.className=="genre-mobile-links"){
+    x.className+=" responsive";
+  } else{
+    x.className="genre-mobile-links";
+  }
+  console.log(x.className);
+}

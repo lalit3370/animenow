@@ -21,9 +21,14 @@
 --themesliderboxshadow: 0px 0px 5px 1px rgba(0,0,0,0.75);
 }
 
-body{
-  background: var(--color2); 
+.fas.fa-caret-down{
+  display: none;
 }
+
+body{
+background: var(--color2); 
+}
+
 
 .wrapper{
   display: grid;
@@ -36,7 +41,7 @@ nav{
   position: sticky;
   top: 0;
   display: grid;
-  grid-template-columns: 1fr 2fr 2fr 1fr;
+  grid-template-columns: /*1fr 2fr 2fr 1fr*/ 1fr 3fr 2fr 2fr;
   text-align: center;
   z-index:5;
   box-shadow: var(--navbarboxshadow);
@@ -80,7 +85,9 @@ nav a:hover{
   font-family: 'Trade Winds';
   background-color: transparent;
 }
-
+.genre-mobile-links{
+  display: none;
+}
 .genredropbtn.active {
   background-color: var(--color1active);   
   color: var(--color5);
@@ -93,7 +100,11 @@ nav a:hover{
 }
 
 .genredropdown:hover .genredropbtn {
+  color: var(--color4);
+}
+.genredropdown:hover{
   background-color: var(--color1hover);
+  color: var(--color4);
 }
 .genredropdown-content {
   margin-top:55px;
@@ -207,6 +218,9 @@ border-style: solid;
   background-color: var(--color8);
   color: var(--color4);
 }
+.ham-icon{
+  display: none;
+}
 /* MID AREA */
 #mid{
   display: grid;
@@ -234,8 +248,8 @@ border-style: solid;
     margin:1em;
     background-color: var(--color8);
     /*width:30px;*/
-    height: 20px;
-    width: 5%;
+    height: auto;
+    width: 80px;
     color:var(--color5);
     border-right-width: 5px;
     border-right-color: var(--color4);
@@ -247,12 +261,10 @@ border-style: solid;
 }
 
 .buttonplace{
-  max-width: 1800px;
+  max-width: 90vw;
 }
 .swiper-container {
-  width: 100%;
   max-height: inherit;
-  overflow: visible;
 }
 
 .swiper-slide {
@@ -329,38 +341,101 @@ border-style: solid;
   background-color:var(--color8);
   color: var(--color5);
 }
-/* .themearea{
-  margin-left: 340px;
-  display:block;
-  padding-right: 10px;
+/* MOBILE SCREEN////////////////////////////////////////////////////////////////// */
+@media only screen and (max-width: 1262px) {
+  nav{
+    grid-template-columns: 5fr 1fr;
+  }
+  .ham-icon{
+    display: block;
+    color: var(--color5);
+    align-self: center;
+    size: 95%;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+  .topnav{
+    display: none;
+  }
+  .searcharea{
+    display: none;
+  }
+  .acctarea{
+    display: none;
+  }
+  .navbar.responsive{
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  .navbar.responsive .ham-icon{
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+  .navbar.responsive .searcharea{
+    float: none;
+    display: block;
+    text-align: left;
+    justify-self:left;
+    margin-left: 10px;
+  }
+  .navbar.responsive .acctarea{
+    /* float: none; */
+    display: block;
+    /* text-align: left; */
+  }
+  .navbar.responsive .topnav{
+    float: none;
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  .navbar.responsive a{
+    /* justify-content: left; */
+    text-align: left;
+  }
+  .navbar.responsive .acctarea a{
+    text-align: left;
+    justify-self: start;
+  }
+  .navbar.responsive .genredropdown:hover .genredropdown-content {
+    display: none;
+    /* background-color:var(--color2);
+    grid-template-columns: 1fr 1fr 1fr; */
+  }
+  .navbar.responsive .acctarea{
+    margin-left: 0px;
+    display:grid;
+    grid-template-columns: 1fr;
+    padding-right: 10px;
+  }
+  .navbar.responsive .fas.fa-caret-down{
+    display: block;
+    color: var(--color5);
+    text-align: left;
+    padding: 17px;
+  }
+  .navbar.responsive .acctarea:hover{
+    background-color: var(--color1hover);
+  }
+  .navbar.responsive .acctarea:hover a{
+    color: var(--color4);
+  }
+  .navbar.responsive #acctdropcontent{
+    display: none;
+  }
+  .genre-mobile-links.responsive{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    background: var(--color5);
+    justify-items: center;
+  }
+  .genre-mobile-links.responsive .genreid{
+    color: var(--color1);
+  }
+  .genre-mobile-links.responsive .genreid:hover{
+    color: var(--color1active);
+  }
+
 }
-#themedropcontent{
-  margin-top:55px;
-  display: none; 
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-  position: absolute;
-  min-width: 160px;
-  box-shadow: var(--acctdropcontentboxshadow);
-  z-index: 1;
-  padding: 5px;
-  border-radius: 0px 0px 10px 10px;
-  opacity: 0.95;
-  background-color: var(--color2);
-}
-.colorlabel{
-  font-family: 'Noto Sans';
-  color: aliceblue;
-}
-#discordbtn{
-  border: none;
-  border-radius: 50%;
-  background-color: #7289DA;
-  height: 20px;
-  width: 20px;
-}
-.colorbtn:focus{
-  outline: none;
-} */
