@@ -4,23 +4,21 @@ const path = require('path');
 var User = require('../models/User');
 var passport = require('passport');
 const bcrypt = require('bcryptjs');
-
-router.get('/signup', (req, res) => {
+var checkauth = require('connect-ensure-login');
+var { forwardAuthenticated} = require('../config/checkauth');
+router.get('/signup',forwardAuthenticated, (req, res) => {
   res.render('signup');
 });
-router.get('/login', (req, res) => {
+router.get('/login',forwardAuthenticated, (req, res) => {
   res.render('login');
 });
-
 //Signup
 
-router.post('/signup', (req, res) => {
-  // console.log("/signup");
+router.post('/signup',(req, res) => {
   let errors = [];
   const username = req.body.username;
   const password = req.body.password;
-  // console.log(username);
-  // console.log(password);
+
   const password2 = req.body.password2;
   if (!username || !password || !password2) {
     errors.push({ msg: 'Please enter all fields' });
@@ -31,7 +29,7 @@ router.post('/signup', (req, res) => {
   }
 
   if (password.length < 6) {
-    errors.push({ msg: 'Password must be <br>at least 6 characters' });
+    errors.push({ msg: 'Password need to be atleast 6 characters' });
   }
   if (errors.length > 0) {
     res.render('signup', { errors });
@@ -71,14 +69,12 @@ router.post('/signup', (req, res) => {
 );
 //Login
 
-router.post('/login', (req, res, next) => {
-  passport.authenticate('local', {
-    successRedirect: '/',
-    failureRedirect: '/login',
-    failureFlash: true
-  })(req, res, next);
-});
-router.get('/logout', (req, res) => {
+router.post('/login',passport.authenticate('local', {
+  successReturnToOrRedirect: '/',
+  failureRedirect: '/login',
+  failureFlash: true
+}));
+router.get('/logout',checkauth.ensureLoggedIn(), (req, res) => {
   req.logout();
   res.redirect('/');
 });

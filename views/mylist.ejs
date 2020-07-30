@@ -2,12 +2,18 @@
 <html lang="en">
 
 <head>
-    <script src="homestyle.js"></script>
+    <!-- <script src="homestyle.js"></script> -->
+    <script>
+        <% if (typeof user != 'undefined') {%>
+        var animelist = <%= JSON.stringify(user.anime_mal_id) %>
+        console.log(animelist);
+        <%} else {%>
+            console.log("user not logged in");
+         <% } %>        
+    </script>
     <link href="https://fonts.googleapis.com/css?family=Oxygen|Trade+Winds&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/8bdcc132e6.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="bootstrap.min.css">
-    <link rel="stylesheet" href="home.css">
-    <link rel="stylesheet" href="signup.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -16,6 +22,8 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
     <title>AnimeNow</title>
+    <link rel="stylesheet" href="/home.css">
+    <link rel="stylesheet" href="/animethumb.css">
 </head>
 
 <body>
@@ -73,7 +81,7 @@
                     <div><a href="/genre/mecha" class="genreid">Mecha</a></div>
                 </div>
                 <% if(typeof user !='undefined'){%>
-                <a href="/mylist">My List</a>
+                <a href="/mylist" class="active">My List</a>
                 <% } else {%>
                 <a href="/mylist"style="display: none;">My List</a>
                 <% }%>
@@ -103,7 +111,7 @@
             </div>
             <% } else {%>
             <div class="acctarea">
-                <div class="act"><a href="/login" class="active">Login</a></div>
+                <div class="act"><a href="/login">Login</a></div>
                 <div class="act"><a href="/signup">Signup</a></div>
             </div>
             <% }%>
@@ -112,26 +120,12 @@
             </a>
           </nav>
         <div id="mid">
-            <div class="row row1" >
-                <div class="signuparea">    
-                    <%- include('./partials/messages.ejs')%>
-                    <form action="/login" method="post">
-                        <div class="inputboxdiv">
-                            <p>Username:</p> 
-                            <input type="text" name="username" id="username" placeholder="Enter Username">
-                        </div>
-                        <div class="inputboxdiv">
-                            <p>Password:</p>
-                            <input type="password" name="password" class="userpass" placeholder="Enter Password">
-                        </div>
-                        <div class="submitbtnarea">
-                            <br>
-                            <button type="submit" id>Login</button>
-                        </div>
-                        
-                    </form>
+            <div class="row" id="midrow">
+                <div class="animethumbarea" id="newanime">
+
                 </div>
             </div>
+
         </div>
         <div id="foot">
             <div>
@@ -141,7 +135,8 @@
                 Contact Us
             </div>
         </div>
-        <script src="navresponsive.js"></script>
+    <script src="/mylist.js"></script>
+    <script src="/navresponsive.js"></script>
 </body>
 
 </html>

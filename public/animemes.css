@@ -1,17 +1,15 @@
  .swiper-container {
-    max-width: 50%;
-    max-height: 1000px;
-    /* max-height: inherit; */
+    max-width: 100%;
     margin-left: auto;
     margin-right: auto;
 
 } 
 .memearea{
-    max-width: 1800px;
+    /* max-width: 1800px; */
 } 
 .memediv {
     width: 600px;
-    padding: 30px;
+    padding: 20px;
     background-color: #333333;
     -webkit-box-shadow: 2px 2px 3px 0px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 2px 2px 3px 0px rgba(0, 0, 0, 0.75);
@@ -127,4 +125,11 @@
     font-family: 'Roboto', sans-serif;
     font-size: 25px;
     font-weight: bold;
+}
+#mid{
+    height: 84vh;
+}
+.swiper-container{
+    margin-left:auto;
+    margin-right:auto;
 }

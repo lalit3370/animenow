@@ -25,3 +25,28 @@
 .animethumbs:hover{
     transform: scale(1.05);
 }
+@media only screen and (max-width: 1690px) {
+  .animethumbarea{
+    grid-template-columns: repeat(5,225px);
+  }
+}
+@media only screen and (max-width: 1417px) {
+  .animethumbarea{
+    grid-template-columns: repeat(4,225px);
+  }
+}
+@media only screen and (max-width: 1140px) {
+  .animethumbarea{
+    grid-template-columns: repeat(3,225px);
+  }
+}
+@media only screen and (max-width: 868px) {
+  .animethumbarea{
+    grid-template-columns: repeat(2,225px);
+  }
+}
+@media only screen and (max-width: 500px) {
+  .animethumbarea{
+    grid-template-columns: repeat(1,225px);
+  }
+}

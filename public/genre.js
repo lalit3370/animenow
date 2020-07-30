@@ -14,13 +14,6 @@ function getgenre(pageno){
     var query = `
 query ($page: Int, $perPage: Int, $sort: [MediaSort], $isAdult: Boolean, $genre: String) {
     Page (page: $page, perPage: $perPage) {
-    pageInfo {
-        total
-        currentPage
-        lastPage
-        hasNextPage
-        perPage
-    }
     media (sort: $sort, type: ANIME, isAdult: $isAdult, genre: $genre) {
         title {
         romaji
@@ -28,8 +21,7 @@ query ($page: Int, $perPage: Int, $sort: [MediaSort], $isAdult: Boolean, $genre:
     coverImage {
         large
     }
-    status
-    format
+    idMal
     }
     }
 }
@@ -38,7 +30,7 @@ query ($page: Int, $perPage: Int, $sort: [MediaSort], $isAdult: Boolean, $genre:
 var variables = {
 genre: genid,
 sort: "POPULARITY_DESC",
-perPage: 50,
+perPage: 25,
 isAdult: false,
 page: pageno
 };
@@ -58,17 +50,32 @@ body: JSON.stringify({
 
 fetch(url, options)
 .then(handleResponse)
-.then((data)=>{
-    console.log(data);
-    var count = Object.keys(data.data.Page.media).length;
-    for (var i = 0; i < count; i++) {
-        const element=data.data.Page.media[i];
-        document.getElementById("newanime").insertAdjacentHTML('beforeend', '<div class="animethumbs"><div class="animage"><img src=' + element.coverImage.large + ' alt="Error Displaying the image" class="animage"></div><div class="imagetext"><p>' + element.title.romaji + '</p></div>');
-    }
-    })
+.then(handleData)
 .catch(handleError);
 }
-
+function handleData(data){
+    console.log(data);
+    d1=document.getElementById("newanime");
+    var count=Object.keys(data.data.Page.media).length;
+    if (typeof animelist != 'undefined') {
+      for(var i=0;i<count;i++){
+        var element=data.data.Page.media[i];
+        if (animelist.some(function getelement(list) {
+            return list == element.idMal;
+        })) {
+            d1.insertAdjacentHTML('beforeend', '<div class="swiper-slide"><div class="animethumbs"> <form action="/remove" method="post"><button type="submit" class="addtoprofile"  name="animeid" value=' + element.idMal + ' onclick="addtoprofile()"> <i class="fas fa-check-square fa-3x"></i></button></form><img src=' + element.coverImage.large + ' alt="Error Displaying the image"><div class="imagetext"><p>' + element.title.romaji + '</p></div></div>');
+        } else {
+            d1.insertAdjacentHTML('beforeend', '<div class="swiper-slide"><div class="animethumbs"> <form action="/add" method="post"><button type="submit" class="addtoprofile"  name="animeid" value=' + element.idMal + ' onclick="addtoprofile()"> <i class="fas fa-plus-square fa-3x"></i></button></form><img src=' + element.coverImage.large + ' alt="Error Displaying the image"><div class="imagetext"><p>' + element.title.romaji + '</p></div></div>');
+        }  
+      }
+    }
+    else{
+      for (var i = 0; i < count; i++) {
+        var element=data.data.Page.media[i];
+          d1.insertAdjacentHTML('beforeend', '<div class="swiper-slide"><div class="animethumbs"><img src=' + element.coverImage.large + ' alt="Error Displaying the image"><div class="imagetext"><p>' + element.title.romaji + '</p></div></div>');
+      }    
+    }
+}
 function handleResponse(response) {
     return response.json().then(function (json) {
         return response.ok ? json : Promise.reject(json);

@@ -50,6 +50,7 @@ var url = 'https://graphql.anilist.co',
 fetch(url, options)
   .then(handleResponse)
   .then((data)=>{
+    console.log(data);
     var d1 = document.getElementById("newanime");
     var count = Object.keys(data.data.Page.media).length;
     if (typeof animelist != 'undefined') {
@@ -249,6 +250,28 @@ var swiper1 = new Swiper('.swiper-container.new', {
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev',
   },
+  breakpoints: {
+    600:  {
+      slidesPerView: 1,
+      slidesPerGroup: 1,
+    },
+    936: {
+      slidesPerView: 2,
+      slidesPerGroup: 2
+    },
+    1205: {
+      slidesPerView: 3,
+      slidesPerGroup: 3
+    },
+    1520: {
+      slidesPerView: 4,
+      slidesPerGroup: 4
+    },
+    1840: {
+      slidesPerView: 5,
+      slidesPerGroup: 5
+    }
+  },
 });
 var swiper2 = new Swiper('.swiper-container.trend', {
   slidesPerView: 6,
@@ -262,6 +285,28 @@ var swiper2 = new Swiper('.swiper-container.trend', {
   navigation: {
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev',
+  },
+  breakpoints: {
+    600:  {
+      slidesPerView: 1,
+      slidesPerGroup: 1
+    },
+    936: {
+      slidesPerView: 2,
+      slidesPerGroup: 2
+    },
+    1205: {
+      slidesPerView: 3,
+      slidesPerGroup: 3
+    },
+    1520: {
+      slidesPerView: 4,
+      slidesPerGroup: 4
+    },
+    1840: {
+      slidesPerView: 5,
+      slidesPerGroup: 5
+    }
   },
 });
 
@@ -277,6 +322,28 @@ var swiper3 = new Swiper('.swiper-container.top', {
   navigation: {
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev',
+  },
+  breakpoints: {
+    600:  {
+      slidesPerView: 1,
+      slidesPerGroup: 1
+    },
+    936: {
+      slidesPerView: 2,
+      slidesPerGroup: 2
+    },
+    1205: {
+      slidesPerView: 3,
+      slidesPerGroup: 3
+    },
+    1520: {
+      slidesPerView: 4,
+      slidesPerGroup: 4
+    },
+    1840: {
+      slidesPerView: 5,
+      slidesPerGroup: 5
+    }
   },
 });
 setTimeout(() => {
