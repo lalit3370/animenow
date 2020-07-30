@@ -8,4 +8,4 @@ Add Anime to your Profile to keep track of it, and review your current anime.
 
 View anime memes or Animemes posted by other user or upload your own!
 
-![Home Preview](animenowhome2.png)
+![Home Preview](animenowhome.png)
