@@ -1,7 +1,7 @@
 var x = document.getElementById('memearea');
 memelist.forEach(element => {
     console.log(element);
-    x.insertAdjacentHTML('beforeend', '<div class="swiper-slide"><div class="memediv"><span class="memetitle">' + element.title + '</span><span class="memeuploader">Uploader: ' + element.uploader + '</span><br><br><img src= '+ element.path +'  alt="Image error"></div></div>');
+    x.insertAdjacentHTML('beforeend', '<div class="swiper-slide"><div class="memediv"><span class="memetitle">' + element.title + '</span><br><span class="memeuploader">Uploader: ' + element.uploader + '</span><br><br><img src= '+ element.path +'  alt="Image error"></div></div>');
 });
 
 

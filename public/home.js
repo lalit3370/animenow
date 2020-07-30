@@ -238,7 +238,7 @@ function handleError(error) {
 }
 var swiper1 = new Swiper('.swiper-container.new', {
   slidesPerView: 6,
-  // spaceBetween: -50,
+  spaceBetween: -50,
   slidesPerGroup: 6,
   pagination: {
       el: '.swiper-pagination',
@@ -274,7 +274,7 @@ var swiper1 = new Swiper('.swiper-container.new', {
 });
 var swiper2 = new Swiper('.swiper-container.trend', {
   slidesPerView: 6,
-  // spaceBetween: -50,
+  spaceBetween: -50,
   slidesPerGroup: 6,
   pagination: {
       el: '.swiper-pagination',
@@ -311,7 +311,7 @@ var swiper2 = new Swiper('.swiper-container.trend', {
 
 var swiper3 = new Swiper('.swiper-container.top', {
   slidesPerView: 6,
-  // spaceBetween: -50,
+  spaceBetween: -50,
   slidesPerGroup: 6,
   pagination: {
       el: '.swiper-pagination',
@@ -351,22 +351,3 @@ setTimeout(() => {
   swiper3.update();
   console.log("now");
 }, 1500);
-
-function showtopnav(){
-  var x=document.getElementById("navbar");
-  if(x.className=="navbar"){
-    x.className+=" responsive";
-  } else{
-    x.className="navbar";
-  }
-  console.log(x.className);
-}
-function showgenre(){
-  var x=document.getElementById("genre-mobile-links");
-  if(x.className=="genre-mobile-links"){
-    x.className+=" responsive";
-  } else{
-    x.className="genre-mobile-links";
-  }
-  console.log(x.className);
-}

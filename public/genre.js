@@ -38,7 +38,7 @@ query ($page: Int, $perPage: Int, $sort: [MediaSort], $isAdult: Boolean, $genre:
 var variables = {
 genre: genid,
 sort: "POPULARITY_DESC",
-perPage: 50,
+perPage: 25,
 isAdult: false,
 page: pageno
 };

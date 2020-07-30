@@ -1,4 +1,17 @@
-var query = `
+search(1);
+let x=1;
+window.addEventListener('scroll',function(){
+  const totalscroll=document.documentElement.scrollHeight-window.innerHeight;
+  var scrolled=window.scrollY;
+  scrolled=Math.ceil(scrolled);
+  scrolled+=20;
+  if(totalscroll<=scrolled){
+    x++;
+    search(x);
+  }
+});
+function search(pageno){
+  var query = `
 query ($id: Int, $page: Int, $perPage: Int, $search: String, $sort: [MediaSort]) {
   Page (page: $page, perPage: $perPage) {
     pageInfo {
@@ -32,7 +45,7 @@ var variables = {
     // genre_in: "action",
     search: searchquery,
     sort: "POPULARITY_DESC",
-    page: 1,
+    page: pageno,
     perPage: 50
 };
 
@@ -52,6 +65,8 @@ var url = 'https://graphql.anilist.co',
 fetch(url, options).then(handleResponse)
                    .then(handleData)
                    .catch(handleError);
+}
+
 
 function handleResponse(response) {
     return response.json().then(function (json) {
@@ -65,7 +80,6 @@ function handleData(data) {
     document.getElementById("newanime").insertAdjacentHTML('beforeend', '<div class="animethumbs"><div class="animage"><img src=' + data.data.Page.media[i].coverImage.large + ' alt="Error Displaying the image" class="animage"></div><div class="imagetext"><p>' + data.data.Page.media[i].title.romaji + '</p></div>');
   }
     console.log(data);
-    // console.log(data.data.Page);
 }
 
 function handleError(error) {
