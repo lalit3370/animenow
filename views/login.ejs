@@ -4,6 +4,7 @@
 <head>
     <script src="homestyle.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Oxygen|Trade+Winds&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/8bdcc132e6.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="bootstrap.min.css">
     <link rel="stylesheet" href="home.css">
     <link rel="stylesheet" href="signup.css">
@@ -25,9 +26,9 @@
             </div>
             <div class="topnav">
                 <a href="/">Home</a>
-                <a href="/list">List</a>
+                <a href="catalogue">Catalogue</a>
                 <div class="genredropdown" onclick="showgenre()">
-                    <a class="genredropbtn active">Genre</a>
+                    <a class="genredropbtn">Genre</a>
                     <i class="fas fa-caret-down"></i>
                     <div class="genredropdown-content">
                         <div>
@@ -71,29 +72,33 @@
                     <div><a href="/genre/thriller" class="genreid">Thriller</a></div>
                     <div><a href="/genre/mecha" class="genreid">Mecha</a></div>
                 </div>
-                <a href="#browse">Browse</a>
+                <% if(typeof user !='undefined'){%>
+                <a href="/mylist">My List</a>
+                <% } else {%>
+                <a href="/mylist"style="display: none;">My List</a>
+                <% }%>
                 <a href="/animemes">Animemes</a>
             </div>
             <div class="searcharea">
-                <form action="/search" method="POST" id="searchform">
+                <form action="/search" method="GET" id="searchform">
                     <input type="text" id="search" name="searchkey" placeholder="Search">
                     <button type="submit" class="bootstrapbtn white">Search</button>
                 </form>
             </div>
-            <% if(typeof user !='undefined'){%>
+                            <% if(typeof user !='undefined'){%>
             <div class="acctarea" onclick="showacctlinks()">
                 <div class="act">
                     <a id="acctname">Welcome, <%=user.username%></a><i class="fas fa-caret-down"></i>
                 </div>
                 <div id="acctdropcontent" class="acctdropcontent">
-                    <a href="/profile" class="acctlinks">Profile</a>
-                    <a href="/setting" class="acctlinks">Settings</a>
+                    <!-- <a href="/profile" class="acctlinks">Profile</a>
+                    <a href="/setting" class="acctlinks">Settings</a> -->
                     <a href="/logout" class="acctlinks">Logout</a>
                 </div>
             </div>
             <div id="acctdropcontent-mobile" class="acctdropcontent-mobile">
-                <a href="/profile" class="acctlinks">Profile</a>
-                <a href="/setting" class="acctlinks">Settings</a>
+                <!-- <a href="/profile" class="acctlinks">Profile</a>
+                <a href="/setting" class="acctlinks">Settings</a> -->
                 <a href="/logout" class="acctlinks">Logout</a>
             </div>
             <% } else {%>
@@ -111,11 +116,11 @@
                 <div class="signuparea">    
                     <%- include('./partials/messages.ejs')%>
                     <form action="/login" method="post">
-                        <div>
+                        <div class="inputboxdiv">
                             <p>Username:</p> 
                             <input type="text" name="username" id="username" placeholder="Enter Username">
                         </div>
-                        <div>
+                        <div class="inputboxdiv">
                             <p>Password:</p>
                             <input type="password" name="password" class="userpass" placeholder="Enter Password">
                         </div>

@@ -22,14 +22,8 @@ query ($id: Int, $page: Int, $perPage: Int, $search: String, $sort: [MediaSort])
       perPage
     }
     media (id: $id, search: $search, type: ANIME, sort: $sort) {
-      id
       idMal
-      externalLinks {
-        url
-      }
       title {
-        english
-        native
         romaji
     }
     coverImage {
@@ -41,8 +35,6 @@ query ($id: Int, $page: Int, $perPage: Int, $search: String, $sort: [MediaSort])
 `;
 
 var variables = {
-    // search: "Fate/Zero",
-    // genre_in: "action",
     search: searchquery,
     sort: "POPULARITY_DESC",
     page: pageno,
@@ -74,12 +66,27 @@ function handleResponse(response) {
     });
 }
 
-function handleData(data) {
+function handleData(data) { 
+  d1=document.getElementById("newanime");
   var count=Object.keys(data.data.Page.media).length;
-  for(var i=0;i<count;i++){
-    document.getElementById("newanime").insertAdjacentHTML('beforeend', '<div class="animethumbs"><div class="animage"><img src=' + data.data.Page.media[i].coverImage.large + ' alt="Error Displaying the image" class="animage"></div><div class="imagetext"><p>' + data.data.Page.media[i].title.romaji + '</p></div>');
+  if (typeof animelist != 'undefined') {
+    for(var i=0;i<count;i++){
+      var element=data.data.Page.media[i];
+      if (animelist.some(function getelement(list) {
+          return list == element.idMal;
+      })) {
+          d1.insertAdjacentHTML('beforeend', '<div class="swiper-slide"><div class="animethumbs"> <form action="/remove" method="post"><button type="submit" class="addtoprofile"  name="animeid" value=' + element.idMal + ' onclick="addtoprofile()"> <i class="fas fa-check-square fa-3x"></i></button></form><img src=' + element.coverImage.large + ' alt="Error Displaying the image"><div class="imagetext"><p>' + element.title.romaji + '</p></div></div>');
+      } else {
+          d1.insertAdjacentHTML('beforeend', '<div class="swiper-slide"><div class="animethumbs"> <form action="/add" method="post"><button type="submit" class="addtoprofile"  name="animeid" value=' + element.idMal + ' onclick="addtoprofile()"> <i class="fas fa-plus-square fa-3x"></i></button></form><img src=' + element.coverImage.large + ' alt="Error Displaying the image"><div class="imagetext"><p>' + element.title.romaji + '</p></div></div>');
+      }  
+    }
   }
-    console.log(data);
+  else{
+    for (var i = 0; i < count; i++) {
+      var element=data.data.Page.media[i];
+        d1.insertAdjacentHTML('beforeend', '<div class="swiper-slide"><div class="animethumbs"><img src=' + element.coverImage.large + ' alt="Error Displaying the image"><div class="imagetext"><p>' + element.title.romaji + '</p></div></div>');
+    }    
+  }
 }
 
 function handleError(error) {

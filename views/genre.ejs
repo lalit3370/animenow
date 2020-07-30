@@ -5,6 +5,13 @@
     <!-- <script src="homestyle.js"></script> -->
     <script>
         var genid ="<%=genid%>";
+        console.log(genid);
+        <% if (typeof user != 'undefined') {%>
+        var animelist = <%= JSON.stringify(user.anime_mal_id) %>
+        console.log(animelist);
+        <%} else {%>
+            console.log("user not logged in");
+         <% } %>        
     </script>
     <link href="https://fonts.googleapis.com/css?family=Oxygen|Trade+Winds&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
@@ -29,7 +36,7 @@
             </div>
             <div class="topnav">
                 <a href="/">Home</a>
-                <a href="/list">List</a>
+                <a href="catalogue">Catalogue</a>
                 <div class="genredropdown active" onclick="showgenre()">
                     <a class="genredropbtn">Genre</a>
                     <i class="fas fa-caret-down"></i>
@@ -75,29 +82,33 @@
                     <div><a href="/genre/thriller" class="genreid">Thriller</a></div>
                     <div><a href="/genre/mecha" class="genreid">Mecha</a></div>
                 </div>
-                <a href="#browse">Browse</a>
+                <% if(typeof user !='undefined'){%>
+                <a href="/mylist">My List</a>
+                <% } else {%>
+                <a href="/mylist"style="display: none;">My List</a>
+                <% }%>
                 <a href="/animemes">Animemes</a>
             </div>
             <div class="searcharea">
-                <form action="/search" method="POST" id="searchform">
+                <form action="/search" method="GET" id="searchform">
                     <input type="text" id="search" name="searchkey" placeholder="Search">
                     <button type="submit" class="bootstrapbtn white">Search</button>
                 </form>
             </div>
-            <% if(typeof user !='undefined'){%>
+                            <% if(typeof user !='undefined'){%>
             <div class="acctarea" onclick="showacctlinks()">
                 <div class="act">
                     <a id="acctname">Welcome, <%=user.username%></a><i class="fas fa-caret-down"></i>
                 </div>
                 <div id="acctdropcontent" class="acctdropcontent">
-                    <a href="/profile" class="acctlinks">Profile</a>
-                    <a href="/setting" class="acctlinks">Settings</a>
+                    <!-- <a href="/profile" class="acctlinks">Profile</a>
+                    <a href="/setting" class="acctlinks">Settings</a> -->
                     <a href="/logout" class="acctlinks">Logout</a>
                 </div>
             </div>
             <div id="acctdropcontent-mobile" class="acctdropcontent-mobile">
-                <a href="/profile" class="acctlinks">Profile</a>
-                <a href="/setting" class="acctlinks">Settings</a>
+                <!-- <a href="/profile" class="acctlinks">Profile</a>
+                <a href="/setting" class="acctlinks">Settings</a> -->
                 <a href="/logout" class="acctlinks">Logout</a>
             </div>
             <% } else {%>

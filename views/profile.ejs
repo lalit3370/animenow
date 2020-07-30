@@ -25,7 +25,7 @@
             </div>
             <div class="topnav">
                 <a href="/">Home</a>
-                <a href="/list">List</a>
+                <a href="catalogue">Catalogue</a>
                 <div class="genredropdown">
                     <a class="genredropbtn">Genre</a>
                     <div class="genredropdown-content">
@@ -59,7 +59,7 @@
             </div>
 
             <div class="searcharea">
-                <form action="/search" method="POST" id="searchform">
+                <form action="/search" method="GET" id="searchform">
                     <input type="text" id="search" name="searchkey" placeholder="Search">
                     <button type="submit" class="bootstrapbtn white">Search</button>
                 </form>
@@ -67,8 +67,8 @@
             <div class="acctarea">
                 <a href="/home" id="acctname">Welcome, <%=user.username%></a>
                 <div id="acctdropcontent">
-                    <a href="/profile" class="acctlinks">Profile</a>
-                    <a href="/setting" class="acctlinks">Settings</a>
+                    <!-- <a href="/profile" class="acctlinks">Profile</a>
+                    <a href="/setting" class="acctlinks">Settings</a> -->
                     <a href="/logout" class="acctlinks">Logout</a>
                 </div>
             </div>

@@ -2,7 +2,8 @@ var express = require('express');
 var router = express.Router();
 var multer = require('multer');
 const path = require('path');
-var { ensureAuthenticated } = require('../config/checkauth');
+var checkauth = require('connect-ensure-login');
+// var { ensureAuthenticated } = require('../config/checkauth');
 var Animeme = require('../models/Animeme');
 var storage = multer.diskStorage({
   destination: './public/uploads/',
@@ -35,8 +36,10 @@ router.get('/animemes', (req, res) => {
     res.render('animemes', { user: req.user, memelist: result });
   })
 });
-
-router.post('/animemes/upload',ensureAuthenticated, upload.single('mymeme'), function (req, res) {
+router.get('/animemes/upload',(req,res)=>{
+  res.redirect('/animemes');
+})
+router.post('/animemes/upload',checkauth.ensureLoggedIn(), upload.single('mymeme'), function (req, res) {
   console.log(req.file);
   const newAnimeme = new Animeme({
     uploader: req.user.username,

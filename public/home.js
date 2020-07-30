@@ -50,6 +50,7 @@ var url = 'https://graphql.anilist.co',
 fetch(url, options)
   .then(handleResponse)
   .then((data)=>{
+    console.log(data);
     var d1 = document.getElementById("newanime");
     var count = Object.keys(data.data.Page.media).length;
     if (typeof animelist != 'undefined') {
