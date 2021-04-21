@@ -53,6 +53,6 @@ app.use(homeRoutes);
 app.use(animemeRoutes);
 app.use(profileRoutes);
 
-app.listen(process.env.PORT || 3000,() => {
+app.listen(process.env.PORT || 3001,() => {
     console.log(`App Started on PORT ${process.env.PORT || 3000}`);
 });
